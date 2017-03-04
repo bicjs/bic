@@ -1,0 +1,23 @@
+/**
+* Bootstrap - https://getbootstrap.com/
+*/
+$icon-font-path: '/bootstrap-sass/assets/fonts/bootstrap/';
+
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+/**
+* FontAwesome - http://fontawesome.io/
+*/
+$fa-font-path: '/font-awesome/fonts/';
+
+@import '~font-awesome/scss/font-awesome';
+
+/**
+ * Hack - https://sourcefoundry.org/hack/
+@import '~hack-font/build/webfonts/css/hack';
+@import '~hack-font/build/webfonts/css/hack-extended';
+*/
+
+%font-hack {
+	font-family: 'Hack', monospace;
+}

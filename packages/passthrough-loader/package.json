@@ -1,0 +1,28 @@
+{
+  "name": "passthrough-loader",
+  "description": "A webpack loader that passes through whatever it loads so you can operate on it.",
+  "version": "0.0.0-1",
+	"devDependencies": {
+    "commitizen": "~2.9.5",
+    "cz-conventional-changelog": "~1.2.0",
+    "eslint": "~3.14.0",
+    "eslint-config-xo": "~0.17.0",
+    "fixpack": "~2.3.1",
+    "updtr": "~0.2.3"
+  },
+  "homepage": "https://github.com/bicjs/packages/passthrough-loader/",
+  "keywords": [
+    "loader",
+    "passthrough",
+    "webpack"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "commit": "git-cz",
+    "lint": "eslint --fix .",
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0",
+    "upgrade": "updtr && fixpack"
+  }
+}

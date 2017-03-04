@@ -1,0 +1,42 @@
+{
+  "name": "@bicjs/bic-config",
+  "description": "Bic configuration.",
+  "version": "0.0.0-1",
+  "dependencies": {
+    "commander": "~2.9.0",
+    "deep-freeze": "~0.0.1",
+    "findup-sync": "~0.4.3",
+    "fs-jetpack": "~0.10.5",
+    "lodash": "~4.17.4",
+    "pkg-up": "~1.0.0",
+    "req-all": "~1.0.0",
+    "yargs": "~6.6.0"
+  },
+  "devDependencies": {
+    "commitizen": "~2.9.5",
+    "cz-conventional-changelog": "~1.2.0",
+    "eslint": "~3.14.0",
+    "eslint-config-xo": "~0.17.0",
+    "faucet": "~0.0.1",
+    "fixpack": "~2.3.1",
+    "updtr": "~0.2.3"
+  },
+  "homepage": "https://github.com/bicjs/bic/packages/bic-config",
+  "keywords": [
+    "configuration",
+    "site",
+    "static",
+    "web"
+  ],
+  "main": "src",
+  "scripts": {
+    "commit": "git-cz",
+    "link": "linkr",
+    "link:rm": "linkr remove && npm i",
+    "lint": "eslint --fix .",
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0",
+    "upgrade": "updtr && fixpack"
+  }
+}

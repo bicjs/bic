@@ -1,0 +1,24 @@
+{
+  "author": {
+    "name": "Ray Patterson",
+    "email": "github.raypatterson@gmail.com"
+  },
+  "bugs": "https://github.com/bicjs/bic/issues/",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "lerna run lint",
+      "pre-push": "lerna run test"
+    }
+  },
+  "engines": {
+    "node": "6"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "ghooks": "~2.0.0",
+    "lerna": "2.0.0-beta.38"
+  }
+}
