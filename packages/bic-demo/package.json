@@ -13,10 +13,7 @@
     "hack-font": "~2.0.19"
   },
   "devDependencies": {
-    "@bicjs/bic": "file:../bic",
-    "npm-link-check": "~1.2.0",
-    "npm-run-all": "~4.0.1",
-    "ntl": "~1.1.3"
+    "@bicjs/bic": "file:../bic"
   },
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-demo/README.md",
   "keywords": [
@@ -33,9 +30,6 @@
   "scripts": {
     "build": "bic --clean --production --config ./bic.production.config.js",
     "dev": "bic",
-    "link": "linklocal link -r && linklocal list -r",
-    "ls": "ntl .",
-    "test": "npm-run-all --parallel test:*",
-    "test:link": "npm-link-check"
+    "link": "linklocal link -r && linklocal list -r"
   }
 }
