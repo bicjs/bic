@@ -30,6 +30,9 @@
   "scripts": {
     "build": "bic --clean --production --config ./bic.production.config.js",
     "dev": "bic",
-    "link": "linklocal link -r && linklocal list -r"
+    "link": "linklocal link -r && linklocal list -r",
+		"test": "npm run test:pass",
+		"test:fail": "exit 1",
+		"test:pass": "exit 0"
   }
 }

@@ -49,7 +49,7 @@
   "repository": "https://github.com/bicjs/bic/",
   "scripts": {
     "clean": "npm cache clean && lerna clean",
-    "commit": "lerna exec -- git-cz",
+    "commit": "git-cz",
     "dev": "lerna exec --scope bic-demo -- npm run dev",
     "fixpack": "fixpack & lerna exec -- fixpack",
     "lint": "lerna exec -- eslint --fix .",
