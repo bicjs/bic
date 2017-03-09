@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * TODO: Should CLI be defined in `@bicjs/bic-config/src/compose/commands.js`? Meh.
+ * TODO: Move CLI from `@bicjs/bic-config/src/compose/commands.js` to its own package.
  */
 /* eslint-disable import/no-unassigned-import */
 require('../src');

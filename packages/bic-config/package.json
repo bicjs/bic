@@ -1,7 +1,11 @@
 {
   "name": "@bicjs/bic-config",
-  "description": "Bic configuration.",
+  "description": "Bic website packaging framework configuration.",
   "version": "0.0.0-1",
+  "author": {
+    "name": "Ray Patterson",
+    "email": "github.raypatterson@gmail.com"
+  },
   "dependencies": {
     "commander": "~2.9.0",
     "deep-freeze": "~0.0.1",
@@ -12,31 +16,18 @@
     "req-all": "~1.0.0",
     "yargs": "~6.6.0"
   },
-  "devDependencies": {
-    "commitizen": "~2.9.5",
-    "cz-conventional-changelog": "~1.2.0",
-    "eslint": "~3.14.0",
-    "eslint-config-xo": "~0.17.0",
-    "faucet": "~0.0.1",
-    "fixpack": "~2.3.1",
-    "updtr": "~0.2.3"
-  },
-  "homepage": "https://github.com/bicjs/bic/packages/bic-config",
+  "devDependencies": {},
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-config/README.md",
   "keywords": [
     "configuration",
     "site",
     "static",
     "web"
   ],
-  "main": "src",
+  "main": "./src",
   "scripts": {
-    "commit": "git-cz",
-    "link": "linkr",
-    "link:rm": "linkr remove && npm i",
-    "lint": "eslint --fix .",
     "test": "npm run test:pass",
     "test:fail": "exit 1",
-    "test:pass": "exit 0",
-    "upgrade": "updtr && fixpack"
+    "test:pass": "exit 0"
   }
 }

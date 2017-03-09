@@ -1,3 +1,3 @@
-#  Prototype App
+# Bic Demo
 
-> Just what it sounds like.
+> Bic website packaging framework demo.

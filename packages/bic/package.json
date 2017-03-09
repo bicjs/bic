@@ -1,6 +1,6 @@
 {
   "name": "@bicjs/bic",
-  "description": "Bic website packaging framework",
+  "description": "Bic website packaging framework.",
   "version": "0.0.0-1",
   "author": {
     "name": "Ray Patterson",
@@ -9,22 +9,12 @@
   "bin": {
     "bic": "./bin/bic.js"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    },
-    "ghooks": {
-      "pre-commit": "npm run lint",
-      "pre-push": "npm run test"
-    }
-  },
   "dependencies": {
-    "@bicjs/bic-config": "git+ssh://git@github.com/bicjs/packages/bic-config#master",
+    "@bicjs/bic-config": "file:../bic-config",
     "autoprefixer": "~6.7.0",
     "babel-core": "~6.22.1",
     "babel-loader": "~6.2.10",
     "babel-preset-env": "~1.1.8",
-    "babel-preset-latest": "~6.22.0",
     "cached-loader": "~0.1.1",
     "css-loader": "~0.26.1",
     "customizr": "1.0.0-alpha",
@@ -50,7 +40,7 @@
     "open-browser-webpack-plugin": "~0.0.3",
     "opener": "~1.4.2",
     "optimize-css-assets-webpack-plugin": "~1.3.0",
-    "passthrough-loader": "git+ssh://git@github.com/bicjs/packages/passthrough-loader#master",
+    "passthrough-loader": "file:../passthrough-loader",
     "pkg-dir": "~1.0.0",
     "postcss-loader": "~1.2.2",
     "progress-bar-webpack-plugin": "~1.9.3",
@@ -58,6 +48,7 @@
     "sass-loader": "~4.1.1",
     "stats-webpack-plugin": "~0.4.3",
     "style-loader": "~0.13.1",
+    "stylelint": "7.9.0",
     "stylelint-config-standard": "~15.0.1",
     "stylelint-webpack-plugin": "~0.5.1",
     "url-loader": "~0.5.7",
@@ -70,34 +61,20 @@
     "webpack-validator": "~2.3.0",
     "webpack-visualizer-plugin": "~0.1.10"
   },
-  "devDependencies": {
-    "blue-tape": "~1.0.0",
-    "commitizen": "~2.9.5",
-    "cz-conventional-changelog": "~1.1.6",
-    "faucet": "~0.0.1",
-    "fixpack": "~2.3.1",
-    "ghooks": "~2.0.0",
-    "npm-autolink": "~0.4.1",
-    "updtr": "~0.2.3"
-  },
-  "homepage": "https://github.com/bicjs/bic/packages/bic/",
+  "devDependencies": {},
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic/README.md",
   "keywords": [
     "bic",
     "bicjs",
-    "webpack",
-    "website",
     "build",
-    "framework"
+    "framework",
+    "webpack",
+    "website"
   ],
-  "main": "src",
+  "main": "./src",
   "scripts": {
-    "commit": "git-cz",
-    "link": "npm-autolink link",
-    "link:rm": "npm-autolink remove",
-    "lint": "eslint --fix .",
     "test": "npm run test:pass",
     "test:fail": "exit 1",
-    "test:pass": "exit 0",
-    "upgrade": "updtr && fixpack"
+    "test:pass": "exit 0"
   }
 }
