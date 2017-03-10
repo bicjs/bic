@@ -5,6 +5,10 @@ const path = require('path');
 const cfg = require('@bicjs/bic-config');
 
 /**
+ * TODO: Implement new caching https://webpack.js.org/guides/caching/
+ */
+
+/**
  *  Config
  */
 
@@ -43,7 +47,7 @@ const webpackConfig = {
 		rules: []
 	},
 	cache: cfg.production === false,
-	devtool: cfg.production ? false : 'cheap-module-inline-source-map'
+	devtool: cfg.production ? 'source-map' : 'cheap-module-eval-source-map'
 };
 
 module.exports = webpackConfig;

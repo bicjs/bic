@@ -4,6 +4,8 @@ const path = require('path');
 
 const cfg = require('@bicjs/bic-config');
 
+const DEFAULT_MODE = 'default';
+
 /**
  * TODO: Import project plugins
  */
@@ -32,20 +34,25 @@ module.exports = webpackConfig => {
 
 	const filterPlugin = (list, key) => {
 
-		const keyDelimiter = ':';
-		const omitDelimiter = '-';
-		const omitPrefix = 'no';
-		const defaultMode = 'default';
+		let mode = DEFAULT_MODE;
 
-		const name = key.split(keyDelimiter)[0];
+		const pair = key.split(':');
 
-		let mode = key.split(keyDelimiter)[1] || defaultMode;
+		let name = pair[0];
 
+		if (pair.length === 2) {
+
+			mode = name;
+			name = pair[1];
+
+		}
+
+		const omitPrefix = `no-`;
 		const omit = mode.indexOf(omitPrefix) === 0;
 
 		if (omit) {
 
-			mode = mode.split(omitDelimiter)[1];
+			mode = mode.split(omitPrefix)[1];
 
 		}
 
@@ -53,7 +60,7 @@ module.exports = webpackConfig => {
 
 		let isLoading = false;
 
-		if (flag === true || mode === defaultMode) {
+		if (flag === true || mode === DEFAULT_MODE) {
 
 			isLoading = !omit;
 
@@ -92,12 +99,15 @@ module.exports = webpackConfig => {
 
 	};
 
+	/**
+	 * TODO: Check if if plugin init order really matters. (Current setup is hacky.)
+	 */
+
 	[
 		// Skip in production
-		'hot-module:no-production',
-		'open-browser:no-production',
+		'no-production:hot-module',
 		// Load in debug
-		'debug-flag:debug',
+		'debug:debug-flag',
 		// Load always
 		'use-strict',
 		'lint-styles',
@@ -107,9 +117,11 @@ module.exports = webpackConfig => {
 		'common-chunks',
 		'split-path',
 		// Load in production
-		'show-progress:production',
-		'stats-graph:production',
-		'optimize-output:production'
+		'production:show-progress',
+		'production:stats-graph',
+		'production:optimize-output',
+		// Open
+		'open:open-browser'
 
 	].reduce(filterPlugin, [])
 		.forEach(loadPlugin);

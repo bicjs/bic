@@ -5,7 +5,6 @@ const WebpackDevServer = require('webpack-dev-server');
 const Dashboard = require('webpack-dashboard');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 const httpServer = require('http-server');
-const opener = require('opener');
 
 const cfg = require('@bicjs/bic-config');
 
@@ -18,8 +17,6 @@ const startPreviewServer = () => {
 	httpServer.createServer({
 		root: cfg.file.dest
 	}).listen(cfg.server.port, cfg.server.host, () => {
-
-		opener(cfg.server.url);
 
 		console.log(`Preview Server started at: ${cfg.server.url}`);
 
@@ -82,7 +79,8 @@ const startDevServer = webpackConfig => {
 		hot: true,
 		quiet: cfg.debug === false,
 		noInfo: cfg.debug === false,
-		publicPath: '/',
+		contentBase: webpackConfig.output.path,
+		publicPath: webpackConfig.output.publicPath,
 		stats: {
 			colors: true
 		}

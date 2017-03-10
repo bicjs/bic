@@ -18,4 +18,6 @@ module.exports = webpackConfig => {
 
 		}, {});
 
+	console.log('webpackConfig.entry', webpackConfig.entry);
+
 };
