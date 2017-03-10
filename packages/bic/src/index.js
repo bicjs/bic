@@ -76,11 +76,21 @@ const startDevServer = webpackConfig => {
 
 	const server = new WebpackDevServer(webpack(webpackConfig), {
 
-		hot: true,
+		/**
+		 * TODO: Fix HMR by giving up on Node API? (Currently doing full page refresh on change.)
+		 */
+		// hot: true,
+		// hotOnly: true,
 		quiet: cfg.debug === false,
 		noInfo: cfg.debug === false,
 		contentBase: webpackConfig.output.path,
 		publicPath: webpackConfig.output.publicPath,
+		host: cfg.server.host,
+		port: cfg.server.port,
+		overlay: {
+			errors: true,
+			warnings: true
+		},
 		stats: {
 			colors: true
 		}
