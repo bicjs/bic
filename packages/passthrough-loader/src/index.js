@@ -1,14 +1,14 @@
 'use strict';
 
-const parseQuery = require('loader-utils').parseQuery;
+const getOptions = require('loader-utils').getOptions;
 
 module.exports = function passthroughLoader(source) {
 
-	const config = getConfig(this.options, parseQuery(this.query));
+	const options = getOptions(this);
 
-	if (config.callback && typeof config.callback === 'function') {
+	if (options.callback && typeof options.callback === 'function') {
 
-		config.callback(source, this);
+		options.callback(source, this);
 
 	} else {
 
@@ -17,14 +17,6 @@ module.exports = function passthroughLoader(source) {
 	}
 
 };
-
-function getConfig(options, query) {
-
-	return options.passthroughLoader ||
-    options.passthrough ||
-    options[query.config];
-
-}
 
 function throwError(message) {
 

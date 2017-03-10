@@ -13,7 +13,9 @@
     "hack-font": "~2.0.19"
   },
   "devDependencies": {
-    "@bicjs/bic": "file:../bic"
+    "@bicjs/bic": "file:../bic",
+    "@bicjs/bic-config": "file:../bic-config",
+    "passthrough-loader": "file:../passthrough-loader"
   },
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-demo/README.md",
   "keywords": [

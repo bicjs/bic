@@ -1,8 +1,5 @@
 'use strict';
 
-const Joi = require('webpack-validator').Joi;
-const combineLoaders = require('webpack-combine-loaders');
-
 const cfg = require('@bicjs/bic-config');
 
 /**
@@ -13,7 +10,7 @@ module.exports = webpackConfig => {
 
 	const imagesLoaders = [{
 		loader: 'url-loader',
-		query: {
+		options: {
 			limit: cfg.wp.maxInlineFileSizeLimit,
 			name: cfg.wp.outputPath
 		}
@@ -22,32 +19,28 @@ module.exports = webpackConfig => {
 	if (cfg.production) {
 
 		imagesLoaders.push({
-			loader: 'image-webpack'
+			loader: 'image-webpack-loader',
+			options: {
+				pngquant: {
+					quality: '65-90',
+					speed: 4
+				},
+				svgo: {
+					plugins: [{
+						removeViewBox: false
+					}, {
+						removeEmptyAttrs: false
+					}]
+				}
+			}
 		});
 
 	}
 
-	// Allow Image Compression config to pass validation
-	webpackConfig.webpackSchemaExtension.imageWebpackLoader = Joi.any();
-
-	webpackConfig.imageWebpackLoader = {
-		pngquant: {
-			quality: '65-90',
-			speed: 4
-		},
-		svgo: {
-			plugins: [{
-				removeViewBox: false
-			}, {
-				removeEmptyAttrs: false
-			}]
-		}
-	};
-
 	// Add Images Loader
-	webpackConfig.module.loaders.push({
+	webpackConfig.module.rules.push({
 		test: /\.(jpe?g|png|gif|svg)$/i,
-		loader: combineLoaders(imagesLoaders)
+		use: imagesLoaders
 	});
 
 };

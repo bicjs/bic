@@ -6,7 +6,6 @@ const cfg = require('@bicjs/bic-config');
 
 /**
  * TODO: Import project plugins
- * TODO: Not sure how to use `NoErrorsPlugin` plugin with ESLint warnings. https://github.com/MoOx/eslint-loader#noerrorsplugin
  */
 
 module.exports = webpackConfig => {
