@@ -2,10 +2,6 @@
 
 const cfg = require('@bicjs/bic-config');
 
-/**
- * TODO: Figure out why cache loader doesn't work with images.
- */
-
 module.exports = webpackConfig => {
 
 	const imagesLoaders = [{
@@ -37,7 +33,6 @@ module.exports = webpackConfig => {
 
 	}
 
-	// Add Images Loader
 	webpackConfig.module.rules.push({
 		test: /\.(jpe?g|png|gif|svg)$/i,
 		use: imagesLoaders

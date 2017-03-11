@@ -20,14 +20,14 @@ module.exports = webpackConfig => {
 		if (cfg.debug === false) {
 
 			/**
-			 * NOTE: Disables output from Customizr
+			 * Disables output from Customizr
 			 */
 			process.argv.push('--quiet');
 
 		} else {
 
 			/**
-			 * NOTE: Increases output from Customizr
+			 * Increases output from Customizr
 			 */
 			process.argv.push('--verbose');
 

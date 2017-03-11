@@ -25,9 +25,13 @@ const OPTIONS = {
 		description: 'Open in browser (production)',
 		default: false
 	},
-	config: {
+	biconfig: {
 		alias: 'f',
-		name: 'config',
+		/**
+		 * FIXME: Change config argument something lecc clever once CLI is abstracted.
+		 * (conflicting with `webpack-dev-server --config=...`)
+		 */
+		name: 'biconfig',
 		description: 'Specify config file',
 		default: 'bic.config.js'
 	}
@@ -82,10 +86,10 @@ const argv = yargs
 	/**
 	 * `--config bic.config.file.js` or `-rc bic.config.file.js`
 	 */
-	.alias(OPTIONS.config.alias, OPTIONS.config.name)
-	.string(OPTIONS.config.alias)
-	.default(OPTIONS.config.name, OPTIONS.config.default)
-	.describe(OPTIONS.config.alias, OPTIONS.config.description)
+	.alias(OPTIONS.biconfig.alias, OPTIONS.biconfig.name)
+	.string(OPTIONS.biconfig.alias)
+	.default(OPTIONS.biconfig.name, OPTIONS.biconfig.default)
+	.describe(OPTIONS.biconfig.alias, OPTIONS.biconfig.description)
 	/**
 	 * `--help` or `-h`
 	 */

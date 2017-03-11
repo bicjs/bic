@@ -8,7 +8,10 @@ const modulesPath = require('./get-modules-path');
 
 const nodeModules = path.relative(cfg.file.absolute.source, modulesPath.node);
 
+const hmr = path.join(nodeModules, 'webpack/hot/only-dev-server');
+const wds = path.join(nodeModules, 'webpack-dev-server/client');
+
 module.exports = cfg.production ? [] : [
-	path.join(nodeModules, 'webpack/hot/only-dev-server'),
-	`${path.join(nodeModules, 'webpack-dev-server/client')}?${cfg.server.url}/`
+	hmr,
+	`${wds}?${cfg.server.url}/`
 ];

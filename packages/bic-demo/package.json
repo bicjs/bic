@@ -30,7 +30,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "build": "bic --clean --production --config ./bic.production.config.js",
+    "build": "bic --clean --production --biconfig ./bic.production.config.js",
     "dev": "bic",
     "debug": "bic --debug",
     "link": "linklocal link -r && linklocal list -r",

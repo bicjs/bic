@@ -301,5 +301,6 @@ $RECYCLE.BIN/
 
 ### Project ###
 
-.tmp
 dist
+.tmp
+.imdone

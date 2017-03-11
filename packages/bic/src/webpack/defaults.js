@@ -8,10 +8,6 @@ const cfg = require('@bicjs/bic-config');
  * TODO: Implement new caching https://webpack.js.org/guides/caching/
  */
 
-/**
- *  Config
- */
-
 const defaultFilename = path.join(cfg.wp.outputName, cfg.file.bundle.js);
 
 const webpackConfig = {
@@ -47,7 +43,25 @@ const webpackConfig = {
 		rules: []
 	},
 	cache: cfg.production === false,
-	devtool: cfg.production ? 'source-map' : 'cheap-module-eval-source-map'
+	devtool: cfg.production ? 'source-map' : 'cheap-module-eval-source-map',
+	devServer: {
+
+		// hot: true,
+		// hotOnly: true,
+		quiet: cfg.debug === false,
+		noInfo: cfg.debug === false,
+		contentBase: cfg.file.absolute.dest,
+		publicPath: cfg.wp.publicPath,
+		host: cfg.server.host,
+		port: cfg.server.port,
+		overlay: {
+			errors: true,
+			warnings: true
+		},
+		stats: {
+			colors: true
+		}
+	}
 };
 
 module.exports = webpackConfig;
