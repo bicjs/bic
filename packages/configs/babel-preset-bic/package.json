@@ -1,0 +1,35 @@
+{
+  "name": "babel-preset-bic",
+  "description": "Bic website packaging framework Babel configuration.",
+  "version": "0.0.0-1",
+  "author": {
+    "name": "Ray Patterson",
+    "email": "github.raypatterson@gmail.com"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/configs/babel-preset-bic/README.md",
+  "keywords": [
+    "babel",
+    "babelconfig",
+    "app",
+    "bic",
+    "bicjs",
+    "build",
+    "framework",
+    "webpack",
+    "website"
+  ],
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0"
+  },
+  "dependencies": {
+		"babel": "6.23.0",
+    "babel-preset-env": "~1.2.1"
+  },
+  "peerDependencies": {
+		"babel": "6.23.0"
+  }
+}

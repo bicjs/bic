@@ -2,11 +2,6 @@
 
 const cfg = require('@bicjs/bic-config');
 
-const getResourceConfig = require('../utils/get-resource-config');
-
-const eslintConfig = getResourceConfig('eslint');
-const babelConfig = getResourceConfig('babel');
-
 module.exports = webpackConfig => {
 
 	// ESLint
@@ -23,7 +18,7 @@ module.exports = webpackConfig => {
 				failOnError: true,
 				fix: true,
 				cache: true,
-				configFile: eslintConfig
+				configFile: 'eslint-config-bic'
 			}
 		}],
 		/**
@@ -42,8 +37,7 @@ module.exports = webpackConfig => {
 		use: [{
 			loader: 'babel-loader',
 			options: {
-				cacheDirectory: !cfg.production,
-				extends: babelConfig
+				cacheDirectory: !cfg.production
 			}
 		}],
 		exclude: [

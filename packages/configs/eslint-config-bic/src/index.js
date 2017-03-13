@@ -1,9 +1,5 @@
 'use strict';
 
-const path = require('path');
-
-const modulesPath = require('../src/webpack/utils/get-modules-path.js');
-
 const RULE = {
 	off: 0,
 	warn: 1,
@@ -17,7 +13,7 @@ module.exports = {
 		commonjs: true
 	},
 	extends: [
-		path.join(modulesPath.node, 'eslint-config-xo/index.js')
+		'eslint-config-xo'
 	],
 	rules: {
 		'padded-blocks': [

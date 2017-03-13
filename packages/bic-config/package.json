@@ -10,11 +10,11 @@
     "commander": "~2.9.0",
     "deep-freeze": "~0.0.1",
     "findup-sync": "~0.4.3",
-    "fs-jetpack": "0.12.0",
+    "fs-jetpack": "~0.12.0",
     "lodash": "~4.17.4",
     "pkg-up": "~1.0.0",
     "req-all": "~1.0.0",
-    "yargs": "7.0.1"
+    "yargs": "~7.0.1"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-config/README.md",

@@ -15,7 +15,10 @@
   "devDependencies": {
     "@bicjs/bic": "file:../bic",
     "@bicjs/bic-config": "file:../bic-config",
-    "passthrough-loader": "file:../passthrough-loader"
+    "passthrough-loader": "file:../passthrough-loader",
+    "babel-preset-bic": "file:../configs/babel-preset-bic",
+    "eslint-config-bic": "file:../configs/eslint-config-bic",
+    "stylelint-config-bic": "file:../configs/stylelint-config-bic"
   },
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-demo/README.md",
   "keywords": [

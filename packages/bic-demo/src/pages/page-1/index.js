@@ -1,5 +1,5 @@
 'use strict';
 
-require('common');
+import common from 'common'; // eslint-disable-line
 
 console.log('page-1');

@@ -1,5 +1,5 @@
 {
 	"extends": [
-		"./node_modules/@bicjs/bic/cfg/.eslintrc.js"
+		"eslint-config-bic"
 	]
 }

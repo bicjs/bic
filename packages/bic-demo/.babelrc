@@ -1,3 +1,5 @@
 {
-	"extends": "./node_modules/@bicjs/bic/cfg/.babelrc"
+	"presets": [
+		"babel-preset-bic"
+	]
 }

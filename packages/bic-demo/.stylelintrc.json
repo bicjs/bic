@@ -1,5 +1,5 @@
 {
 	"extends": [
-		"./node_modules/@bicjs/bic/cfg/.stylelintrc.js"
+		"stylelint-config-bic"
 	]
 }

@@ -1,6 +1,8 @@
 'use strict';
 
-require('fastclick').attach(document.body);
+import attach from 'fastclick';
+
+attach(document.body);
 
 import Modernizr from 'modernizr';
 

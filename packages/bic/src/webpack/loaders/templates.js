@@ -52,6 +52,10 @@ module.exports = webpackConfig => {
 
 					const localsPath = path.relative(cfg.file.absolute.pages, pageDir);
 
+					/**
+					 * Absolute path to page
+					 * @type {string}
+					 */
 					locals.path = localsPath === '' ? localsPath : `/${localsPath}`;
 
 					const data = {
@@ -63,7 +67,7 @@ module.exports = webpackConfig => {
 
 						if (err) {
 
-							this.emitError(err);
+							this.emitError(err.message || err.toString());
 
 							return;
 

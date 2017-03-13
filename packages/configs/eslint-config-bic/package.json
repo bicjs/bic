@@ -1,0 +1,35 @@
+{
+  "name": "eslint-config-bic",
+  "description": "Bic website packaging framework ESLint configuration.",
+  "version": "0.0.0-1",
+  "author": {
+    "name": "Ray Patterson",
+    "email": "github.raypatterson@gmail.com"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/configs/eslint-config-bic/README.md",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "app",
+    "bic",
+    "bicjs",
+    "build",
+    "framework",
+    "webpack",
+    "website"
+  ],
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0"
+  },
+  "dependencies": {
+    "eslint": "~3.17.1",
+    "eslint-config-xo": "~0.17.0"
+  },
+  "peerDependencies": {
+    "eslint": "~3.17.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "stylelint-config-bic",
+  "description": "Bic website packaging framework StyleLint configuration.",
+  "version": "0.0.0-1",
+  "author": {
+    "name": "Ray Patterson",
+    "email": "github.raypatterson@gmail.com"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/configs/stylelint-config-bic/README.md",
+  "keywords": [
+    "stylelint",
+    "stylelintconfig",
+    "app",
+    "bic",
+    "bicjs",
+    "build",
+    "framework",
+    "webpack",
+    "website"
+  ],
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0"
+  },
+  "dependencies": {
+    "stylelint": "~7.9.0",
+    "stylelint-config-standard": "16.0.0"
+  },
+  "peerDependencies": {
+    "stylelint": "~7.8.0"
+  }
+}

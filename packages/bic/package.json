@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@bicjs/bic-config": "file:../bic-config",
+    "babel-preset-bic": "file:../configs/babel-preset-bic",
+    "eslint-config-bic": "file:../configs/eslint-config-bic",
+    "stylelint-config-bic": "file:../configs/stylelint-config-bic",
     "autoprefixer": "~6.7.0",
     "babel-core": "6.23.1",
     "babel-loader": "6.4.0",
