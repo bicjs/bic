@@ -8,17 +8,17 @@ const cfg = require('@bicjs/bic-config');
  * TODO: Implement new caching https://webpack.js.org/guides/caching/
  */
 
-const defaultFilename = path.join(cfg.wp.outputName, cfg.file.bundle.js);
+const defaultFilename = path.join(cfg.wp.outputName, cfg.file.name.js);
 
 const webpackConfig = {
 	entry: {},
 	context: cfg.file.absolute.source,
 	output: {
 		path: cfg.file.absolute.dest,
-		filename: defaultFilename,
-		chunkFilename: defaultFilename,
+		pathinfo: cfg.debug,
 		publicPath: cfg.wp.publicPath,
-		pathinfo: cfg.debug
+		filename: defaultFilename,
+		chunkFilename: defaultFilename
 	},
 	resolve: {
 		alias: {},

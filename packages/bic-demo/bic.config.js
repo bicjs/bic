@@ -1,24 +1,31 @@
 'use strict';
 
-const fs = require('fs-jetpack');
 const _ = require('lodash');
 
 var config = {
-	public: {
-		data: {
-			title: 'Prototype App',
-			images: [
-				'/common/images/a/test-1.jpg',
-				'/common/images/a/test-2.jpg',
-				'/common/images/b/test-1.jpg',
-				'/common/images/b/test-2.jpg'
-			]
-		}
+	common: {
+		title: 'Prototype App',
+		images: [
+			'/common/images/a/test-1.jpg',
+			'/common/images/a/test-2.jpg',
+			'/common/images/b/test-1.jpg',
+			'/common/images/b/test-2.jpg'
+		]
 	},
 
-	template: (loader, options) => {
+	template: (tmpl, data, callback) => {
 
-		return _.template(fs.read(loader.resourcePath))(options);
+		try {
+
+			const html = _.template(tmpl)(data);
+
+			callback(null, html);
+
+		} catch (err) {
+
+			callback(err);
+
+		}
 
 	}
 

@@ -1,10 +1,9 @@
 'use strict';
 
 const path = require('path');
+const fs = require('fs-jetpack');
 
 const cfg = require('@bicjs/bic-config');
-
-const getEntryData = require('../utils/get-entry-data');
 
 module.exports = webpackConfig => {
 
@@ -34,28 +33,45 @@ module.exports = webpackConfig => {
 		}, {
 			loader: 'passthrough-loader',
 			options: {
-				callback: (source, loader) => {
+				callback: function callback(tmpl) {
 
-					const callback = loader.async();
+					const asyncCallback = this.async();
 
-					if (!callback) {
+					if (!asyncCallback) {
 
-						return source;
+						return tmpl;
 
 					}
 
-					const resourceDir = path.dirname(loader.resourcePath);
-					const localsPath = path.relative(cfg.file.absolute.pages, resourceDir);
+					const pageDir = this.context;
+					const dataPath = path.join(pageDir, cfg.file.name.data);
 
-					const locals = getEntryData(resourceDir, cfg.file.config);
-					locals.path = localsPath === '' ? '' : `/${localsPath}`;
+					this.addDependency(dataPath);
 
-					const common = cfg.public.data;
+					const locals = dataPath.indexOf('.json') === -1 ? require(dataPath) : fs.read(dataPath, 'json');
 
-					callback(null, cfg.template(loader, {
-						locals,
-						common
-					}));
+					const localsPath = path.relative(cfg.file.absolute.pages, pageDir);
+
+					locals.path = localsPath === '' ? localsPath : `/${localsPath}`;
+
+					const data = {
+						locals: locals,
+						common: cfg.common
+					};
+
+					cfg.template(tmpl, data, (err, result) => {
+
+						if (err) {
+
+							this.emitError(err);
+
+							return;
+
+						}
+
+						asyncCallback(null, result);
+
+					});
 
 				}
 			}

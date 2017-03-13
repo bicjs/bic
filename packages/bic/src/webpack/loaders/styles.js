@@ -77,7 +77,7 @@ module.exports = webpackConfig => {
 
 	webpackConfig.plugins.push(
 		new ExtractTextPlugin({
-			filename: path.join(cfg.wp.outputName, cfg.file.bundle.css),
+			filename: path.join(cfg.wp.outputName, cfg.file.name.css),
 			allChunks: true
 		})
 	);

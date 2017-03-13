@@ -10,12 +10,12 @@ module.exports = (entryObject, entryPath) => {
 
 	const entryName = path.dirname(entryPath);
 
-	const getFilePath = bundleName => path.relative(cfg.file.absolute.source, path.join(cfg.file.absolute.pages, entryName, bundleName));
+	const getFilePath = fileName => path.relative(cfg.file.absolute.source, path.join(cfg.file.absolute.pages, entryName, fileName));
 
 	entryObject[entryName] = devFiles.concat([
-		getFilePath(cfg.file.bundle.js),
-		getFilePath(cfg.file.bundle.sass),
-		getFilePath(cfg.file.bundle.tmpl)
+		getFilePath(cfg.file.name.js),
+		getFilePath(cfg.file.name.sass),
+		getFilePath(cfg.file.name.tmpl)
 	]);
 
 	return entryObject;

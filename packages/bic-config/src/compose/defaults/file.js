@@ -38,10 +38,6 @@ const directories = {
 	temp,
 	dest,
 
-	// Performance plugin directories
-	happypack: path.join(dest, '.happypack'),
-	cached: path.join(dest, '.cached'),
-
 	// Assets common to all app entry points
 	common,
 
@@ -79,14 +75,13 @@ directories.absolute = Object.keys(directories)
 
 // Add file names
 Object.assign(config, directories, {
-	index: 'index',
-	config: 'config',
-	extensions: {
-		js: 'js',
-		css: 'css',
-		sass: 'scss',
-		html: 'html',
-		tmpl: 'ejs'
+	name: {
+		js: 'index.js',
+		css: 'index.css',
+		sass: 'index.scss',
+		html: 'index.html',
+		tmpl: 'index.ejs',
+		data: 'config.json'
 	}
 });
 

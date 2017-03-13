@@ -2,13 +2,13 @@
 
 const getOptions = require('loader-utils').getOptions;
 
-module.exports = function passthroughLoader(source) {
+module.exports = function passthroughLoader(content) {
 
 	const options = getOptions(this);
 
 	if (options.callback && typeof options.callback === 'function') {
 
-		options.callback(source, this);
+		options.callback.call(this, content);
 
 	} else {
 
