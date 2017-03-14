@@ -14,7 +14,8 @@
     "ghooks": {
       "pre-commit": "npm run lint",
       "pre-push": "npm run test"
-    }
+    },
+		"save": false
   },
   "dependencies": {},
   "devDependencies": {

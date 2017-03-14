@@ -2,8 +2,18 @@
 
 const fs = require('fs-jetpack');
 
-module.exports = loader => {
+module.exports = (tmpl, data, callback) => {
 
-	return fs.read(loader.resourcePath);
+	try {
+
+		const html = fs.read(tmpl);
+
+		callback(null, html);
+
+	} catch (err) {
+
+		callback(err);
+
+	}
 
 };
