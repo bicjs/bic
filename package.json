@@ -54,13 +54,13 @@
     "commit": "git-cz",
     "dev": "lerna exec --scope tests/demo -- npm run dev",
     "fixpack": "fixpack & lerna exec -- fixpack",
-    "lint": "lerna exec --ignore tests/* -- eslint --fix .",
+    "lint": "lerna exec --ignore demo -- eslint --fix .",
     "ls": "ntl .",
     "postinstall": "lerna exec -- npm install && lerna bootstrap && lerna run link",
-    "precommit": "npm run lint && npm run security",
+    "precommit": "npm run lint",
     "prepush": "npm run test",
     "preversion": "npm-link-check",
-    "security": "lerna exec --ignore tests/* -- nsp check --output summary",
+    "security": "lerna exec --ignore demo -- nsp check --output summary",
     "test": "lerna run test",
     "upgrade": "updtr & lerna exec -- updtr"
   }
