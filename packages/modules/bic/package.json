@@ -6,9 +6,6 @@
     "name": "Ray Patterson",
     "email": "github.raypatterson@gmail.com"
   },
-  "bin": {
-    "bic": "./bin/bic.js"
-  },
   "dependencies": {
     "@bicjs/bic-config": "file:../bic-config",
     "@bicjs/bic-logger": "file:../bic-logger",

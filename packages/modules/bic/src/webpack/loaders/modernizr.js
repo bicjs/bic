@@ -7,7 +7,7 @@
 const path = require('path');
 const fs = require('fs-jetpack');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 const projectRoot = require('../utils/get-project-root');
 

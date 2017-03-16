@@ -3,7 +3,7 @@
 const webpack = require('webpack');
 const httpServer = require('http-server');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 

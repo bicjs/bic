@@ -2,7 +2,7 @@
 
 const del = require('del');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 module.exports = () => {
 

@@ -3,7 +3,7 @@
 const webpack = require('webpack');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 

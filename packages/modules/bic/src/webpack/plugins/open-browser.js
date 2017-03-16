@@ -2,7 +2,7 @@
 
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 

@@ -2,7 +2,7 @@
 
 const glob = require('globby');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 const addEntryPoint = require('./add-entry-point');
 

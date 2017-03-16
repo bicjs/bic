@@ -2,7 +2,7 @@
 
 const SplitByPathPlugin = require('webpack-split-by-path');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 /**
  * TODO: Optimize code code splitting by combining `manifest` and `common` JS.

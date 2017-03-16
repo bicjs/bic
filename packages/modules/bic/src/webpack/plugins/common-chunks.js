@@ -3,7 +3,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 /**
  * TODO: Disable `common` JS if `webpackConfig.entry.length === 1`.

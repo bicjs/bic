@@ -28,7 +28,7 @@ module.exports = {
 		return new (winston.Logger)({
 			transports: [
 				new (winston.transports.Console)({
-					label: `🔥  bic :: ${label}`,
+					label: `🔥  bic ⟶ ${label}`,
 					level: level,
 					colorize: true,
 					timestamp: true,

@@ -1,20 +1,41 @@
 'use strict';
 
-const _ = require('lodash');
-const deepFreeze = require('deep-freeze');
+// Add `.env` vars to `process.env` vars
+const dotenv = require('dotenv');
+dotenv.load();
 
-const env = require('dotenv').config();
+const immutable = require('seamless-immutable');
 
-const defaults = require('./compose/defaults');
-const resource = require('./compose/resource');
-const commands = require('./compose/commands');
+// Collect default settings
+const DEFAULTS = require('req-all')('./defaults');
 
-const config = _.merge(defaults, resource, commands, env.parsed);
+// Create config object and make immutable
+let cfg = immutable(DEFAULTS);
 
-/**
- * ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫
- * Let it go, let it go!
- * Can't hold it back any more.
- * ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫ ♫
- */
-module.exports = deepFreeze(config);
+// Finds `bic.config.js`
+const rcLocator = require('./utils/rc-locator');
+
+// Config merge method
+const merge = obj => {
+
+	// Merge `rc` first, as the location may have been overrriden by new config
+	cfg = immutable.merge(cfg, rcLocator(cfg, obj));
+
+	// Merge new config
+	cfg = immutable.merge(cfg, obj);
+
+	// Return updated config
+	return cfg;
+
+};
+
+// Merge CLI defaults
+const cli = require('./cli');
+
+merge(cli.DEFAULTS);
+
+module.exports = {
+	get: () => cfg,
+	merge,
+	cli
+};

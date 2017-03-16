@@ -2,7 +2,7 @@
 
 const path = require('path');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 const devFiles = require('./get-dev-files');
 

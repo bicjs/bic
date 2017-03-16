@@ -1,26 +1,27 @@
 {
-  "name": "@bicjs/bic-config",
-  "description": "Bic website packaging framework configuration.",
+  "name": "@bicjs/bic-cli",
+  "description": "Bic website packaging framework CLI.",
   "version": "0.0.0-1",
   "author": {
     "name": "Ray Patterson",
     "email": "github.raypatterson@gmail.com"
   },
+  "bin": {
+    "bic": "./bin/bic"
+  },
   "dependencies": {
-    "@bicjs/bic-cli": "file:../bic-cli",
+    "@bicjs/bic": "file:../bic",
+    "@bicjs/bic-config": "file:../bic-config",
     "@bicjs/bic-logger": "file:../bic-logger",
-    "dotenv": "4.0.0",
-    "fs-jetpack": "~0.12.0",
-    "req-all": "~1.0.0",
-    "seamless-immutable": "7.1.1"
+    "yargs": "~7.0.1"
   },
   "devDependencies": {},
-  "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-config/README.md",
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-cli/README.md",
   "keywords": [
     "bic",
     "bicjs",
     "build",
-    "configuration",
+    "cli",
     "framework",
     "webpack",
     "website"

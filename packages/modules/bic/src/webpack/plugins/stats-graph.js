@@ -5,7 +5,7 @@ const WebpackVisualizerPlugin = require('webpack-visualizer-plugin');
 const StatsWriterPlugin = require('webpack-stats-plugin').StatsWriterPlugin;
 const StatsPlugin = require('stats-webpack-plugin');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 const dest = path.join(cfg.file.reports, 'stats');
 

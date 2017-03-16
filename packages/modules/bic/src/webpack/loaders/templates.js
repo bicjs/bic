@@ -1,9 +1,8 @@
 'use strict';
 
 const path = require('path');
-const fs = require('fs-jetpack');
 
-const cfg = require('@bicjs/bic-config');
+const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 
@@ -48,14 +47,14 @@ module.exports = webpackConfig => {
 
 					this.addDependency(dataPath);
 
-					const locals = dataPath.indexOf('.json') === -1 ? require(dataPath) : fs.read(dataPath, 'json');
-
-					const localsPath = path.relative(cfg.file.absolute.pages, pageDir);
+					const locals = require(dataPath);
 
 					/**
 					 * Absolute path to page
 					 * @type {string}
 					 */
+					const localsPath = path.relative(cfg.file.absolute.pages, pageDir);
+
 					locals.path = localsPath === '' ? localsPath : `/${localsPath}`;
 
 					const data = {

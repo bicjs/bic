@@ -1,30 +1,37 @@
 'use strict';
 
+const logger = require('@bicjs/bic-logger');
+const config = require('@bicjs/bic-config');
+
+const webpackConfig = require('../webpack.config');
+
 const buildDevelopment = require('./webpack/build/development');
 const buildProduction = require('./webpack/build/production');
 
-const cfg = require('@bicjs/bic-config');
-
-const logger = require('@bicjs/bic-logger');
+const cfg = config.get();
 
 logger.setLevel(cfg.debug ? logger.LEVEL.debug : logger.LEVEL.error);
 
 const log = logger.get('init');
 
-log.info('start');
+log.debug(cfg);
 
-const webpackConfig = require('../webpack.config');
+const init = () => {
 
-if (cfg.production === true) {
+	log.info('start');
 
-	buildProduction(webpackConfig);
+	if (cfg.production === true) {
 
-} else {
+		buildProduction(webpackConfig);
 
-	buildDevelopment(webpackConfig);
+	} else {
 
-}
+		buildDevelopment(webpackConfig);
 
-log.info('end');
+	}
 
-module.exports = true;
+};
+
+module.exports = {
+	init
+};
