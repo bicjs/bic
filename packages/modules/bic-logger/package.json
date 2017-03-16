@@ -1,0 +1,29 @@
+{
+  "name": "@bicjs/bic-logger",
+  "description": "Bic website packaging framework logger.",
+  "version": "0.0.0-1",
+  "author": {
+    "name": "Ray Patterson",
+    "email": "github.raypatterson@gmail.com"
+  },
+  "dependencies": {
+    "winston": "2.3.1"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-logger/README.md",
+  "keywords": [
+    "bic",
+    "bicjs",
+    "build",
+    "framework",
+    "logger",
+    "webpack",
+    "website"
+  ],
+  "main": "./src",
+  "scripts": {
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0"
+  }
+}

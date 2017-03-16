@@ -15,7 +15,7 @@
     "passthrough",
     "webpack"
   ],
-  "main": "./src/index.js",
+  "main": "./src",
   "scripts": {
     "test": "npm run test:pass",
     "test:fail": "exit 1",

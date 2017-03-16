@@ -6,30 +6,30 @@
     "name": "Ray Patterson",
     "email": "github.raypatterson@gmail.com"
   },
+  "dependencies": {
+    "stylelint": "~7.9.0",
+    "stylelint-config-standard": "~16.0.0"
+  },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/configs/stylelint-config-bic/README.md",
   "keywords": [
-    "stylelint",
-    "stylelintconfig",
     "app",
     "bic",
     "bicjs",
     "build",
     "framework",
+    "stylelint",
+    "stylelintconfig",
     "webpack",
     "website"
   ],
   "main": "./src/index.js",
+  "peerDependencies": {
+    "stylelint": "~7.9.0"
+  },
   "scripts": {
     "test": "npm run test:pass",
     "test:fail": "exit 1",
     "test:pass": "exit 0"
-  },
-  "dependencies": {
-    "stylelint": "~7.9.0",
-    "stylelint-config-standard": "16.0.0"
-  },
-  "peerDependencies": {
-    "stylelint": "~7.8.0"
   }
 }

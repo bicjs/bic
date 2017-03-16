@@ -6,12 +6,16 @@
     "name": "Ray Patterson",
     "email": "github.raypatterson@gmail.com"
   },
+  "dependencies": {
+    "babel": "~6.23.0",
+    "babel-preset-env": "~1.2.1"
+  },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/configs/babel-preset-bic/README.md",
   "keywords": [
+    "app",
     "babel",
     "babelconfig",
-    "app",
     "bic",
     "bicjs",
     "build",
@@ -20,16 +24,12 @@
     "website"
   ],
   "main": "./src/index.js",
+  "peerDependencies": {
+    "babel": "~6.23.0"
+  },
   "scripts": {
     "test": "npm run test:pass",
     "test:fail": "exit 1",
     "test:pass": "exit 0"
-  },
-  "dependencies": {
-		"babel": "6.23.0",
-    "babel-preset-env": "~1.2.1"
-  },
-  "peerDependencies": {
-		"babel": "6.23.0"
   }
 }

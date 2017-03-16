@@ -20,10 +20,13 @@
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-config/README.md",
   "keywords": [
+    "bic",
+    "bicjs",
+    "build",
     "configuration",
-    "site",
-    "static",
-    "web"
+    "framework",
+    "webpack",
+    "website"
   ],
   "main": "./src",
   "scripts": {

@@ -1,5 +1,5 @@
 {
-  "name": "bic-demo",
+  "name": "demo",
   "description": "Bic website packaging framework demo.",
   "version": "0.0.0-1",
   "author": {
@@ -13,14 +13,14 @@
     "hack-font": "~2.0.19"
   },
   "devDependencies": {
-    "@bicjs/bic": "file:../bic",
-    "@bicjs/bic-config": "file:../bic-config",
-    "passthrough-loader": "file:../passthrough-loader",
-    "babel-preset-bic": "file:../configs/babel-preset-bic",
-    "eslint-config-bic": "file:../configs/eslint-config-bic",
-    "stylelint-config-bic": "file:../configs/stylelint-config-bic"
+    "@bicjs/bic": "file:../../modules/bic",
+    "@bicjs/bic-config": "file:../../modules/bic-config",
+    "babel-preset-bic": "file:../../configs/babel-preset-bic",
+    "eslint-config-bic": "file:../../configs/eslint-config-bic",
+    "passthrough-loader": "file:../../utils/passthrough-loader",
+    "stylelint-config-bic": "file:../../configs/stylelint-config-bic"
   },
-  "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-demo/README.md",
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/test/demo/README.md",
   "keywords": [
     "app",
     "bic",
@@ -31,14 +31,14 @@
     "webpack",
     "website"
   ],
-  "main": "index.js",
+  "main": ".",
   "scripts": {
     "build": "bic --clean --production --biconfig ./bic.production.config.js",
-    "dev": "bic",
     "debug": "bic --debug",
+    "dev": "bic",
     "link": "linklocal link -r && linklocal list -r",
-		"test": "npm run test:pass",
-		"test:fail": "exit 1",
-		"test:pass": "exit 0"
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0"
   }
 }

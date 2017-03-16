@@ -15,7 +15,7 @@
       "pre-commit": "npm run lint",
       "pre-push": "npm run test"
     },
-		"save": false
+    "save": false
   },
   "dependencies": {},
   "devDependencies": {
@@ -27,9 +27,10 @@
     "husky": "~0.13.2",
     "lerna": "~2.0.0-beta.38",
     "linklocal": "~2.8.0",
+    "npm-link-check": "~1.2.0",
+    "nsp": "2.6.3",
     "ntl": "~1.2.0",
-    "updtr": "~0.2.3",
-    "npm-link-check": "~1.2.0"
+    "updtr": "~0.2.3"
   },
   "engines": {
     "node": ">= 6.10.0",
@@ -51,15 +52,16 @@
   "scripts": {
     "clean": "npm cache clean && lerna clean",
     "commit": "git-cz",
-    "dev": "lerna exec --scope bic-demo -- npm run dev",
+    "dev": "lerna exec --scope tests/demo -- npm run dev",
     "fixpack": "fixpack & lerna exec -- fixpack",
-    "lint": "lerna exec --ignore bic-demo -- eslint --fix .",
+    "lint": "lerna exec --ignore tests/* -- eslint --fix .",
     "ls": "ntl .",
     "postinstall": "lerna exec -- npm install && lerna bootstrap && lerna run link",
-    "precommit": "npm run lint",
+    "precommit": "npm run lint && npm run security",
     "prepush": "npm run test",
+    "preversion": "npm-link-check",
+    "security": "lerna exec --ignore tests/* -- nsp check --output summary",
     "test": "lerna run test",
-    "upgrade": "updtr & lerna exec -- updtr",
-    "preversion": "npm-link-check"
+    "upgrade": "updtr & lerna exec -- updtr"
   }
 }
