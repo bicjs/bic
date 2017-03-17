@@ -2,6 +2,8 @@
 
 console.info('Loading: bic config – PRODUCTION');
 
-module.exports = {
+const config = require('./bic.config');
+
+module.exports = Object.assign(config, {
 	canWeAddAnythingHere: true
-};
+});

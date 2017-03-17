@@ -117,7 +117,10 @@ module.exports = webpackConfig => {
 		'common-chunks',
 		'split-path',
 		// Load in production
-		'production:show-progress',
+		/**
+		 * TODO: Progress is broken
+		 */
+		// 'production:show-progress',
 		'production:stats-graph',
 		'production:optimize-output',
 		// Open

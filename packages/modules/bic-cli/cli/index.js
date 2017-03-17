@@ -27,7 +27,6 @@ config.cli.COMMAND_LIST.forEach(command => {
 
 	cli
 		.alias(command.alias, command.name)
-		.boolean(command.alias)
 		.default(command.alias, command.default)
 		.describe(command.alias, command.description);
 
@@ -49,8 +48,11 @@ cli.help('h')
  */
 
 // 1. Merge CLI options into config
+
 config.merge(cli.argv);
 
 // 2. Init Bic
+
 const bic = require('@bicjs/bic');
+
 bic.init();
