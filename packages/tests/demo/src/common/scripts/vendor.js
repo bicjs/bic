@@ -1,6 +1,8 @@
 'use strict';
 
-import attach from 'fastclick';
+import {
+	attach
+} from 'fastclick';
 
 attach(document.body);
 

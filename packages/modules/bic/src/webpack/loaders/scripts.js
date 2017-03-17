@@ -23,7 +23,6 @@ module.exports = webpackConfig => {
 		}],
 		/**
 		 * TODO: Use `include` instead of `exclude` for ESLint loader.
-		 * @type {Array}
 		 */
 		exclude: [
 			new RegExp(cfg.file.node)

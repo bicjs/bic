@@ -32,13 +32,13 @@ module.exports = webpackConfig => {
 		}, {
 			loader: 'passthrough-loader',
 			options: {
-				callback: function callback(tmpl) {
+				callback: function callback(content) {
 
 					const asyncCallback = this.async();
 
 					if (!asyncCallback) {
 
-						return tmpl;
+						return content;
 
 					}
 
@@ -51,7 +51,6 @@ module.exports = webpackConfig => {
 
 					/**
 					 * Absolute path to page
-					 * @type {string}
 					 */
 					const localsPath = path.relative(cfg.file.absolute.pages, pageDir);
 
@@ -62,7 +61,7 @@ module.exports = webpackConfig => {
 						common: cfg.common
 					};
 
-					cfg.template(tmpl, data, (err, result) => {
+					cfg.template(content, data, (err, result) => {
 
 						if (err) {
 
