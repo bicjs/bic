@@ -1,12 +1,13 @@
 'use strict';
 
 const cfg = require('@bicjs/bic-config').get();
+const log = require('@bicjs/bic-logger').get('loader', 'fonts');
 
 module.exports = webpackConfig => {
 
-	// Woff Loaders
+	log.debug('init');
 
-	webpackConfig.module.rules.push({
+	const woffLoader = {
 		test: /\.woff(2)?(\?v=[0-9]\.[0-9]+)?$/i,
 		use: [{
 			loader: 'url-loader',
@@ -16,11 +17,13 @@ module.exports = webpackConfig => {
 				mimetype: 'application/font-woff'
 			}
 		}]
-	});
+	};
 
-	// Font Loaders
+	webpackConfig.module.rules.push(woffLoader);
 
-	webpackConfig.module.rules.push({
+	log.debug('added', woffLoader);
+
+	const fontLoader = {
 		test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]+)?$/i,
 		use: [{
 			loader: 'file-loader',
@@ -28,6 +31,10 @@ module.exports = webpackConfig => {
 				name: cfg.wp.outputPath
 			}
 		}]
-	});
+	};
+
+	webpackConfig.module.rules.push(fontLoader);
+
+	log.debug('added', fontLoader);
 
 };

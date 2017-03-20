@@ -1,7 +1,8 @@
 'use strict';
 
-const _ = require('lodash');
-const reqAll = require('req-all');
+const glob = require('globby');
+
+const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 
@@ -9,6 +10,13 @@ module.exports = webpackConfig => {
 	 * Import loader presets
 	 * TODO: Import project loaders
 	 */
-	_.each(reqAll('../loaders'), loader => loader(webpackConfig));
+
+	glob.sync([
+		'**/bic-loader-*'
+	], {
+		cwd: cfg.file.absolute.node
+	})
+		.map(loaderName => require(loaderName))
+		.forEach(loader => loader(webpackConfig));
 
 };

@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const argv = require('yargs').argv;
 
 const source = 'src';
 const common = 'common';
@@ -10,7 +9,6 @@ const vendor = 'vendor';
 const reports = 'reports';
 const dist = 'dist';
 const temp = '.tmp';
-const dest = argv.production || argv.p ? dist : temp;
 
 // console.log('argv', argv);
 
@@ -36,7 +34,6 @@ const directories = {
 	// Build 'dest' sub directories
 	dist,
 	temp,
-	dest,
 
 	// Assets common to all app entry points
 	common,

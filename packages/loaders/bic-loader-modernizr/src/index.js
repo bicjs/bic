@@ -1,21 +1,20 @@
 'use strict';
 
+const path = require('path');
+const fs = require('fs');
+
+const cfg = require('@bicjs/bic-config').get();
+const log = require('@bicjs/bic-logger').get('loader', 'modernizr');
+
+const resourceConfigPath = path.resolve(cfg.file.cwd, '.modernizr-autorc');
+
 /**
  * TODO: Inline Modernizr JS into `<head>`.
  */
 
-const path = require('path');
-const fs = require('fs-jetpack');
-
-const cfg = require('@bicjs/bic-config').get();
-
-const projectRoot = require('../utils/get-project-root');
-
-const resourceConfigPath = path.resolve(projectRoot, '.modernizr-autorc');
-
 module.exports = webpackConfig => {
 
-	if (fs.exists(resourceConfigPath)) {
+	if (fs.existsSync(resourceConfigPath)) {
 
 		if (cfg.debug === false) {
 
@@ -33,17 +32,23 @@ module.exports = webpackConfig => {
 
 		}
 
-		webpackConfig.module.rules.push({
+		const modernizrLoader = {
 			test: /\.modernizr-autorc$/,
 			use: {
 				loader: 'modernizr-auto-loader'
 			}
-		});
+		};
+
+		webpackConfig.module.rules.push(modernizrLoader);
+
+		log.debug('added', modernizrLoader);
 
 		webpackConfig
 			.resolve
 			.alias
 			.modernizr$ = resourceConfigPath;
+
+		log.debug('loaded', resourceConfigPath);
 
 	}
 

@@ -4,6 +4,8 @@ const path = require('path');
 
 const cfg = require('@bicjs/bic-config').get();
 
+const dir = require('./utils/get-dest-dir');
+
 /**
  * TODO: Implement new caching https://webpack.js.org/guides/caching/
  */
@@ -14,7 +16,7 @@ const webpackConfig = {
 	entry: {},
 	context: cfg.file.absolute.source,
 	output: {
-		path: cfg.file.absolute.dest,
+		path: dir.absolute.dest,
 		pathinfo: cfg.debug,
 		publicPath: cfg.wp.publicPath,
 		filename: defaultFilename,
@@ -50,7 +52,7 @@ const webpackConfig = {
 		// hotOnly: true,
 		quiet: cfg.debug === false,
 		noInfo: cfg.debug === false,
-		contentBase: cfg.file.absolute.dest,
+		contentBase: dir.absolute.dest,
 		publicPath: cfg.wp.publicPath,
 		host: cfg.server.host,
 		port: cfg.server.port,

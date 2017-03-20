@@ -7,10 +7,11 @@
     "email": "github.raypatterson@gmail.com"
   },
   "dependencies": {
-    "stylelint": "~7.9.0",
     "stylelint-config-standard": "~16.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "stylelint": "~7.9.0"
+  },
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/configs/stylelint-config-bic/README.md",
   "keywords": [
     "app",
@@ -25,7 +26,7 @@
   ],
   "main": "./src/index.js",
   "peerDependencies": {
-    "stylelint": "~7.9.0"
+    "stylelint": "^7.9.0"
   },
   "scripts": {
     "test": "npm run test:pass",

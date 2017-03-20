@@ -1,0 +1,40 @@
+{
+  "name": "@bicjs/bic-loader-scripts",
+  "description": "Bic website packaging framework scripts loader.",
+  "version": "0.0.0-1",
+  "author": {
+    "name": "Ray Patterson",
+    "email": "github.raypatterson@gmail.com"
+  },
+  "dependencies": {
+    "@bicjs/bic-config": "file:../../modules/bic-config",
+    "@bicjs/bic-logger": "file:../../modules/bic-logger",
+    "babel-core": "~6.24.0",
+    "babel-loader": "~6.4.0",
+    "eslint": "~3.17.0",
+    "eslint-loader": "~1.6.1"
+  },
+  "devDependencies": {
+    "@bicjs/bic": "file:../../modules/bic"
+  },
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-scripts/README.md",
+  "keywords": [
+    "bic",
+    "bicjs",
+    "build",
+    "framework",
+    "loader",
+    "scripts",
+    "webpack",
+    "website"
+  ],
+  "main": "./src",
+  "peerDependencies": {
+    "@bicjs/bic": "file:../../modules/bic"
+  },
+  "scripts": {
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0"
+  }
+}

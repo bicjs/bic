@@ -1,9 +1,11 @@
 {
   "lerna": "2.0.0-beta.38",
   "packages": [
+    "packages/*",
     "packages/configs/*",
+		"packages/tests/*",
+		"packages/loaders/*",
 		"packages/modules/*",
-    "packages/tests/*",
     "packages/utils/*"
   ],
   "version": "independent"

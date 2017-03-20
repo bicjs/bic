@@ -16,7 +16,7 @@
     "yargs": "~7.0.1"
   },
   "devDependencies": {},
-  "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-cli/README.md",
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/modules/bic-cli/README.md",
   "keywords": [
     "bic",
     "bicjs",

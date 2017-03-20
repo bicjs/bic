@@ -5,6 +5,8 @@ const httpServer = require('http-server');
 
 const cfg = require('@bicjs/bic-config').get();
 
+const dir = require('../utils/get-dest-dir');
+
 module.exports = webpackConfig => {
 
 	console.info('Starting Build');
@@ -38,7 +40,7 @@ module.exports = webpackConfig => {
 			console.log('Starting Preview Server');
 
 			httpServer.createServer({
-				root: cfg.file.dest
+				root: dir.dest
 			}).listen(cfg.server.port, cfg.server.host, () => {
 
 				console.log(`Preview Server started at: ${cfg.server.url}`);

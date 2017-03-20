@@ -2,7 +2,9 @@
 
 const winston = require('winston');
 
-// winston.config.npm.levels: { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
+/**
+ * winston.config.npm.levels = { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
+ */
 
 const LEVEL = Object.keys(winston.config.npm.levels).reduce((output, key) => {
 
@@ -23,12 +25,15 @@ module.exports = {
 
 	},
 
-	get: (label = '') => {
+	get: function get() {
+
+		const labels = Array.prototype.slice.call(arguments);
+		labels.unshift('🔥  bic');
 
 		return new (winston.Logger)({
 			transports: [
 				new (winston.transports.Console)({
-					label: `🔥  bic ⟶ ${label}`,
+					label: labels.join(' ⟶ '),
 					level: level,
 					colorize: true,
 					timestamp: true,

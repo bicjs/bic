@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const cfg = require('@bicjs/bic-config').get();
+const log = require('@bicjs/bic-logger').get('loader', 'styles');
 
 module.exports = webpackConfig => {
 
@@ -58,6 +59,8 @@ module.exports = webpackConfig => {
 		})
 	});
 
+	log.debug('added', sassLoaders);
+
 	// Add CSS Loader
 
 	let cssLoaders = [
@@ -73,6 +76,8 @@ module.exports = webpackConfig => {
 		})
 	});
 
+	log.debug('added', cssLoaders);
+
 	// Configure ExtractTextPlugin
 
 	webpackConfig.plugins.push(
@@ -82,5 +87,7 @@ module.exports = webpackConfig => {
 			disable: !cfg.production
 		})
 	);
+
+	log.debug(`CSS extract is ${cfg.production ? 'enabled' : 'disabled'}`);
 
 };

@@ -6,14 +6,16 @@
 
 	<title><%= common.title %> | <%= locals.title %></title>
 
-	<link rel="stylesheet" href="/common/index.css">
-	<link rel="stylesheet" href="<%= locals.path %>/index.css">
+	<% if (common.production) { %>
+		<link rel="stylesheet" href="/common/index.css">
+		<link rel="stylesheet" href="<%= locals.path %>/index.css">
+	<% } %>
 
 </head>
 
 <body>
 
-	<div class='background-img'></div>
+	<div class="background-img"></div>
 
 	<h1><%= common.title %> | <%= locals.title %></h1>
 

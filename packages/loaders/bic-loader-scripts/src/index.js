@@ -1,12 +1,11 @@
 'use strict';
 
 const cfg = require('@bicjs/bic-config').get();
+const log = require('@bicjs/bic-logger').get('loader', 'scripts');
 
 module.exports = webpackConfig => {
 
-	// ESLint
-
-	webpackConfig.module.rules.push({
+	const eslintLoader = {
 		test: /\.js$/i,
 		enforce: 'pre',
 		use: [{
@@ -17,8 +16,7 @@ module.exports = webpackConfig => {
 				failOnWarning: false,
 				failOnError: true,
 				fix: true,
-				cache: true,
-				configFile: 'eslint-config-bic'
+				cache: true
 			}
 		}],
 		/**
@@ -27,11 +25,13 @@ module.exports = webpackConfig => {
 		exclude: [
 			new RegExp(cfg.file.node)
 		]
-	});
+	};
 
-	// Babel
+	webpackConfig.module.rules.push(eslintLoader);
 
-	webpackConfig.module.rules.push({
+	log.debug('added', eslintLoader);
+
+	const babelLoader = {
 		test: /\.js$/i,
 		use: [{
 			loader: 'babel-loader',
@@ -42,6 +42,10 @@ module.exports = webpackConfig => {
 		exclude: [
 			new RegExp(cfg.file.node)
 		]
-	});
+	};
+
+	webpackConfig.module.rules.push(babelLoader);
+
+	log.debug('added', babelLoader);
 
 };

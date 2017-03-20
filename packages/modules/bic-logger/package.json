@@ -10,7 +10,7 @@
     "winston": "2.3.1"
   },
   "devDependencies": {},
-  "homepage": "https://github.com/bicjs/bic/blob/master/packages/bic-logger/README.md",
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/modules/bic-logger/README.md",
   "keywords": [
     "bic",
     "bicjs",

@@ -3,10 +3,11 @@
 const path = require('path');
 
 const cfg = require('@bicjs/bic-config').get();
+const log = require('@bicjs/bic-logger').get('loader', 'templates');
 
 module.exports = webpackConfig => {
 
-	webpackConfig.module.rules.push({
+	const templatesLoader = {
 		test: /\.(ejs|hbs|njk|pug)$/i,
 		use: [{
 			loader: 'file-loader',
@@ -61,15 +62,27 @@ module.exports = webpackConfig => {
 						common: cfg.common
 					};
 
+					log.debug('found template at', this.resourcePath);
+					log.debug('found config at ', dataPath);
+
+					log.debug('rendering', content);
+					log.debug('with', data);
+
 					cfg.template(content, data, (err, result) => {
 
 						if (err) {
 
-							this.emitError(err.message || err.toString());
+							const e = err.message || err.toString();
+
+							log.error(e);
+
+							this.emitError(e);
 
 							return;
 
 						}
+
+						log.debug('rendered html', result);
 
 						asyncCallback(null, result);
 
@@ -78,6 +91,10 @@ module.exports = webpackConfig => {
 				}
 			}
 		}]
-	});
+	};
+
+	webpackConfig.module.rules.push(templatesLoader);
+
+	log.debug('added', templatesLoader);
 
 };

@@ -51,14 +51,16 @@
   "main": ".",
   "repository": "https://github.com/bicjs/bic/",
   "scripts": {
-    "clean": "npm cache clean && lerna clean",
+    "bootstrap": "lerna bootstrap",
+    "clean": "npm cache clean && lerna clean --yes",
     "commit": "git-cz",
-    "dev": "lerna exec --scope tests/demo -- npm run dev",
+    "dev": "lerna exec --scope demo -- npm run dev",
     "fixpack": "fixpack & lerna exec -- fixpack",
     "john": "john & lerna exec -- john",
+    "link": "lerna run link",
     "lint": "lerna exec --ignore demo -- eslint --fix .",
     "ls": "ntl .",
-    "postinstall": "lerna exec -- npm install && lerna bootstrap && lerna run link && npm run tidy",
+    "postinstall": "lerna exec -- npm install && npm run link && npm run tidy",
     "precommit": "npm run lint",
     "prepush": "npm run test",
     "preversion": "npm-link-check",
@@ -66,6 +68,7 @@
     "security": "lerna exec --ignore demo -- nsp check --output summary",
     "test": "lerna run test",
     "tidy": "npm run john & npm run fixpack",
+    "unlink": "lerna run unlink",
     "upgrade": "updtr & lerna exec -- updtr"
   }
 }

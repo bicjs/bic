@@ -1,0 +1,38 @@
+{
+  "name": "@bicjs/bic-loader-modernizr",
+  "description": "Bic website packaging framework modernizr loader.",
+  "version": "0.0.0-1",
+  "author": {
+    "name": "Ray Patterson",
+    "email": "github.raypatterson@gmail.com"
+  },
+  "dependencies": {
+    "@bicjs/bic-config": "file:../../modules/bic-config",
+    "@bicjs/bic-logger": "file:../../modules/bic-logger",
+    "customizr": "^1.0.0-alpha",
+    "modernizr-auto-loader": "~0.1.0"
+  },
+  "devDependencies": {
+    "@bicjs/bic": "file:../../modules/bic"
+  },
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-modernizr/README.md",
+  "keywords": [
+    "bic",
+    "bicjs",
+    "build",
+    "framework",
+    "loader",
+    "modernizr",
+    "webpack",
+    "website"
+  ],
+  "main": "./src",
+  "peerDependencies": {
+    "@bicjs/bic": "file:../../modules/bic"
+  },
+  "scripts": {
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0"
+  }
+}

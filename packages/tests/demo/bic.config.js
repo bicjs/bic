@@ -23,6 +23,8 @@ var config = {
 
 		} catch (err) {
 
+			console.log(err);
+
 			callback(err);
 
 		}
