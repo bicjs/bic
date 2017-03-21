@@ -14,8 +14,7 @@
     "ghooks": {
       "pre-commit": "npm run lint",
       "pre-push": "npm run test"
-    },
-    "save": false
+    }
   },
   "dependencies": {},
   "devDependencies": {
@@ -26,7 +25,7 @@
     "fixpack": "~2.3.1",
     "husky": "~0.13.2",
     "john": "~1.1.0",
-    "lerna": "~2.0.0-beta.38",
+    "lerna": "2.0.0-beta.38",
     "linklocal": "~2.8.0",
     "npm-link-check": "~1.2.0",
     "nsp": "~2.6.3",
@@ -51,20 +50,20 @@
   "main": ".",
   "repository": "https://github.com/bicjs/bic/",
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna exec -- npm install",
     "clean": "npm cache clean && lerna clean --yes",
     "commit": "git-cz",
-    "dev": "lerna exec --scope demo -- npm run dev",
     "fixpack": "fixpack & lerna exec -- fixpack",
     "john": "john & lerna exec -- john",
-    "link": "lerna run link",
+    "link": "lerna exec --scope demo -- linklocal link -r",
+    "link:rm": "linklocal link -u -r",
     "lint": "lerna exec --ignore demo -- eslint --fix .",
     "ls": "ntl .",
-    "postinstall": "lerna exec -- npm install && npm run link && npm run tidy",
+    "postbootstrap": "npm run link && npm run tidy",
+    "prebootstrap": "npm run clean",
     "precommit": "npm run lint",
     "prepush": "npm run test",
     "preversion": "npm-link-check",
-    "reinstall": "npm run clean && npm install",
     "security": "lerna exec --ignore demo -- nsp check --output summary",
     "test": "lerna run test",
     "tidy": "npm run john & npm run fixpack",

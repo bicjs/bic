@@ -11,7 +11,7 @@
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
     "babel-core": "~6.24.0",
     "babel-loader": "~6.4.0",
-    "eslint": "~3.17.0",
+    "eslint": "~3.17.1",
     "eslint-loader": "~1.6.1"
   },
   "devDependencies": {

@@ -13,16 +13,7 @@
     "hack-font": "~2.0.19"
   },
   "devDependencies": {
-    "@bicjs/bic": "file:../../modules/bic",
     "@bicjs/bic-cli": "file:../../modules/bic-cli",
-    "@bicjs/bic-config": "file:../../modules/bic-config",
-    "@bicjs/bic-loader-fonts": "file:../../loaders/bic-loader-fonts",
-    "@bicjs/bic-loader-images": "file:../../loaders/bic-loader-images",
-    "@bicjs/bic-loader-modernizr": "file:../../loaders/bic-loader-modernizr",
-    "@bicjs/bic-loader-scripts": "file:../../loaders/bic-loader-scripts",
-    "@bicjs/bic-loader-styles": "file:../../loaders/bic-loader-styles",
-    "@bicjs/bic-loader-templates": "file:../../loaders/bic-loader-templates",
-    "@bicjs/bic-logger": "file:../../modules/bic-logger",
     "babel-preset-bic": "file:../../configs/babel-preset-bic",
     "eslint-config-bic": "file:../../configs/eslint-config-bic",
     "stylelint-config-bic": "file:../../configs/stylelint-config-bic"
@@ -44,10 +35,8 @@
     "build:preview": "npm run build -- --open",
     "debug": "bic --debug",
     "dev": "bic",
-    "link": "linklocal link -r && linklocal list -r",
     "test": "npm run test:pass",
     "test:fail": "exit 1",
-    "test:pass": "exit 0",
-    "unlink": "linklocal link -u -r && linklocal list"
+    "test:pass": "exit 0"
   }
 }

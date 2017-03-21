@@ -15,11 +15,11 @@
     "node-sass": "~4.5.0",
     "postcss-loader": "~1.3.3",
     "sass-loader": "~6.0.3",
-    "style-loader": "~0.13.1"
+    "style-loader": "~0.13.1",
+    "webpack": "2.2.1"
   },
   "devDependencies": {
-    "@bicjs/bic": "file:../../modules/bic",
-    "webpack": "^2.2.0"
+    "@bicjs/bic": "file:../../modules/bic"
   },
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-styles/README.md",
   "keywords": [
@@ -34,8 +34,7 @@
   ],
   "main": "./src",
   "peerDependencies": {
-    "@bicjs/bic": "file:../../modules/bic",
-    "webpack": "^2.2.0"
+    "@bicjs/bic": "file:../../modules/bic"
   },
   "scripts": {
     "test": "npm run test:pass",

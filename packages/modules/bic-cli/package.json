@@ -10,9 +10,9 @@
     "bic": "./bin/bic"
   },
   "dependencies": {
-    "@bicjs/bic": "file:../bic",
-    "@bicjs/bic-config": "file:../bic-config",
-    "@bicjs/bic-logger": "file:../bic-logger",
+    "@bicjs/bic": "file:../../modules/bic",
+    "@bicjs/bic-config": "file:../../modules/bic-config",
+    "@bicjs/bic-logger": "file:../../modules/bic-logger",
     "yargs": "~7.0.1"
   },
   "devDependencies": {},
