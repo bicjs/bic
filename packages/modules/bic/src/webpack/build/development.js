@@ -26,6 +26,7 @@ module.exports = webpackConfig => {
 		 */
 		// hot: true,
 		// hotOnly: true,
+		clientLogLevel: cfg.debug === true ? 'info' : 'none',
 		quiet: cfg.debug === false,
 		noInfo: cfg.debug === false,
 		contentBase: webpackConfig.output.path,

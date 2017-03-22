@@ -8,15 +8,13 @@
   },
   "dependencies": {
     "bootstrap-sass": "~3.3.7",
+    "eslint": "3.18.0",
     "fastclick": "~1.0.6",
     "font-awesome": "~4.7.0",
     "hack-font": "~2.0.19"
   },
   "devDependencies": {
-    "@bicjs/bic-cli": "file:../../modules/bic-cli",
-    "babel-preset-bic": "file:../../configs/babel-preset-bic",
-    "eslint-config-bic": "file:../../configs/eslint-config-bic",
-    "stylelint-config-bic": "file:../../configs/stylelint-config-bic"
+    "@bicjs/bic-cli": "file:../../modules/bic-cli"
   },
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/test/demo/README.md",
   "keywords": [

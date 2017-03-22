@@ -7,7 +7,7 @@
     "email": "github.raypatterson@gmail.com"
   },
   "dependencies": {
-    "loader-utils": "~1.0.3"
+    "loader-utils": "~1.1.0"
   },
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/passthrough-loader/README.md",
   "keywords": [
