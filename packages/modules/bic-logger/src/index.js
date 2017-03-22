@@ -3,7 +3,7 @@
 const winston = require('winston');
 
 /**
- * winston.config.npm.levels = { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
+ * Winston.config.npm.levels = { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
  */
 
 const LEVEL = Object.keys(winston.config.npm.levels).reduce((output, key) => {

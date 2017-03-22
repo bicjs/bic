@@ -48,7 +48,7 @@ const webpackConfig = {
 	devtool: cfg.production ? 'source-map' : 'cheap-module-eval-source-map',
 	devServer: {
 
-		// hot: true,
+		// Hot: true,
 		// hotOnly: true,
 		quiet: cfg.debug === false,
 		noInfo: cfg.debug === false,

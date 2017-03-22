@@ -10,7 +10,7 @@ const reports = 'reports';
 const dist = 'dist';
 const temp = '.tmp';
 
-// console.log('argv', argv);
+// Console.log('argv', argv);
 
 const config = {
 	cwd: process.cwd()
