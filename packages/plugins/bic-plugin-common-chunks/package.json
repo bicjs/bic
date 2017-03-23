@@ -1,0 +1,34 @@
+{
+  "name": "@bicjs/bic-plugin-common-chunks",
+  "description": "Bic website packaging framework common chunks plugin.",
+  "version": "0.0.0-1",
+  "author": {
+    "name": "Ray Patterson",
+    "email": "github.raypatterson@gmail.com"
+  },
+  "dependencies": {
+    "@bicjs/bic-config": "file:../../modules/bic-config",
+    "@bicjs/bic-logger": "file:../../modules/bic-logger",
+    "webpack": "~2.2.1"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-common-chunks/README.md",
+  "keywords": [
+    "bic",
+    "bicjs",
+    "build",
+    "framework",
+    "plugin",
+    "webpack",
+    "website"
+  ],
+  "main": "./src",
+  "peerDependencies": {
+    "@bicjs/bic": "file:../../modules/bic"
+  },
+  "scripts": {
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0"
+  }
+}

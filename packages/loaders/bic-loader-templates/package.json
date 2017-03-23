@@ -13,9 +13,7 @@
     "html-loader": "~0.4.4",
     "passthrough-loader": "file:../../utils/passthrough-loader"
   },
-  "devDependencies": {
-    "@bicjs/bic": "file:../../modules/bic"
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-templates/README.md",
   "keywords": [
     "bic",

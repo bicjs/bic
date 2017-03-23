@@ -27,13 +27,15 @@ const COMMAND = {
 	},
 	rc: {
 		alias: 'f',
-		/**
-		 * FIXME: Change config argument something less clever once CLI is abstracted.
-		 * (conflicting with `webpack-dev-server --config=...`)
-		 */
 		name: 'rc',
 		description: 'Specify config file',
 		default: 'bic.config.js'
+	},
+	extensions: {
+		alias: 'x',
+		name: 'extensions',
+		description: 'Specify extensions folder',
+		default: 'bic'
 	}
 };
 

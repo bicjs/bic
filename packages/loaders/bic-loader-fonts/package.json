@@ -12,9 +12,7 @@
     "file-loader": "~0.10.1",
     "url-loader": "~0.5.7"
   },
-  "devDependencies": {
-    "@bicjs/bic": "file:../../modules/bic"
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-fonts/README.md",
   "keywords": [
     "bic",

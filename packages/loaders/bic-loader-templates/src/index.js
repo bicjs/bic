@@ -59,7 +59,9 @@ module.exports = webpackConfig => {
 
 					const data = {
 						locals: locals,
-						common: cfg.common
+						common: cfg.common,
+						production: cfg.production,
+						debug: cfg.debug
 					};
 
 					log.debug('found template at', this.resourcePath);

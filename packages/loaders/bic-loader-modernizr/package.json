@@ -12,9 +12,7 @@
     "customizr": "^1.0.0-alpha",
     "modernizr-auto-loader": "~0.1.0"
   },
-  "devDependencies": {
-    "@bicjs/bic": "file:../../modules/bic"
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-modernizr/README.md",
   "keywords": [
     "bic",

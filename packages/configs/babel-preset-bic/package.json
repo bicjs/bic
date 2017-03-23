@@ -7,11 +7,10 @@
     "email": "github.raypatterson@gmail.com"
   },
   "dependencies": {
-		"babel": "~6.23.0",
+    "babel": "~6.23.0",
     "babel-preset-env": "~1.2.1"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/configs/babel-preset-bic/README.md",
   "keywords": [
     "app",

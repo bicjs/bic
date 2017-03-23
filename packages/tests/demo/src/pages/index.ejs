@@ -6,7 +6,7 @@
 
 	<title><%= common.title %> | <%= locals.title %></title>
 
-	<% if (common.production) { %>
+	<% if (production) { %>
 		<link rel="stylesheet" href="/common/index.css">
 		<link rel="stylesheet" href="<%= locals.path %>/index.css">
 	<% } %>
@@ -29,9 +29,11 @@
 	  <% }); %>
 	</ul>
 
-	<script src="/manifest/index.js"></script>
-	<script src="/vendor/index.js"></script>
-	<script src="/common/index.js"></script>
+	<% if (production) { %>
+		<script src="/manifest/index.js"></script>
+		<script src="/vendor/index.js"></script>
+		<script src="/common/index.js"></script>
+	<% } %>
 	<script src="<%= locals.path %>/index.js"></script>
 
 </body>

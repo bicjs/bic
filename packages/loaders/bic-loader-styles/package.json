@@ -18,9 +18,7 @@
     "style-loader": "0.15.0",
     "webpack": "~2.2.1"
   },
-  "devDependencies": {
-    "@bicjs/bic": "file:../../modules/bic"
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-styles/README.md",
   "keywords": [
     "bic",

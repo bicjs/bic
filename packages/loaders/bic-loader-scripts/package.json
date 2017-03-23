@@ -13,9 +13,7 @@
     "babel-loader": "~6.4.0",
     "eslint-loader": "~1.6.1"
   },
-  "devDependencies": {
-    "@bicjs/bic": "file:../../modules/bic"
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-scripts/README.md",
   "keywords": [
     "bic",

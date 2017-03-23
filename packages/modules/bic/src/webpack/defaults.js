@@ -4,7 +4,7 @@ const path = require('path');
 
 const cfg = require('@bicjs/bic-config').get();
 
-const dir = require('./utils/get-dest-dir');
+const dir = require('../utils/get-dest-dir');
 
 /**
  * TODO: Implement new caching https://webpack.js.org/guides/caching/
@@ -66,4 +66,4 @@ const webpackConfig = {
 	}
 };
 
-module.exports = webpackConfig;
+module.exports = Object.assign({}, webpackConfig);

@@ -12,9 +12,7 @@
     "image-webpack-loader": "~3.2.0",
     "url-loader": "~0.5.7"
   },
-  "devDependencies": {
-    "@bicjs/bic": "file:../../modules/bic"
-  },
+  "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-images/README.md",
   "keywords": [
     "bic",
