@@ -14,8 +14,9 @@ module.exports = (entryObject, entryPath) => {
 
 	entryObject[entryName] = devFiles.concat([
 		getFilePath(cfg.file.name.js),
-		getFilePath(cfg.file.name.sass),
-		getFilePath(cfg.file.name.tmpl)
+		getFilePath(cfg.file.name.sass)
+		// ,
+		// getFilePath(cfg.file.name.tmpl)
 	]);
 
 	return entryObject;

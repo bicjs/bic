@@ -7,12 +7,14 @@ module.exports = webpackConfig => {
 
 	log.debug('init');
 
+	const filename = cfg.production ? cfg.wp.outputHashPath : cfg.wp.outputPath;
+
 	const woffLoader = {
 		test: /\.woff(2)?(\?v=[0-9]\.[0-9]+)?$/i,
 		use: [{
 			loader: 'url-loader',
 			options: {
-				name: cfg.wp.outputPath,
+				name: filename,
 				limit: cfg.wp.maxInlineFileSizeLimit,
 				mimetype: 'application/font-woff'
 			}
@@ -28,7 +30,7 @@ module.exports = webpackConfig => {
 		use: [{
 			loader: 'file-loader',
 			options: {
-				name: cfg.wp.outputPath
+				name: filename
 			}
 		}]
 	};

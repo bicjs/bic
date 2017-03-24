@@ -19,6 +19,13 @@ module.exports = {
 		'padded-blocks': [
 			RULE.warn,
 			'always'
+		],
+		'capitalized-comments': [
+			RULE.error,
+			'always',
+			{
+				ignoreInlineComments: true
+			}
 		]
 	}
 };

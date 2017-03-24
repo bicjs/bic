@@ -25,37 +25,17 @@ module.exports = webpackConfig => {
 
 		if (jsonStats.errors.length > 0) {
 
-			return log.error(jsonStats.errors);
+			return jsonStats.errors.forEach(msg => log.error(msg));
 
 		}
 
 		if (jsonStats.warnings.length > 0) {
 
-			log.warn(jsonStats.warnings);
+			jsonStats.warnings.forEach(msg => log.warn(msg));
 
 		}
 
-		log.debug(stats.toString({
-			hash: false,
-			version: false,
-			timings: true,
-			assets: true,
-			entrypoints: true,
-			chunks: true,
-			chunkModules: true,
-			modules: true,
-			reasons: false,
-			depth: false,
-			usedExports: false,
-			providedExports: false,
-			children: false,
-			source: false,
-			errors: true,
-			errorDetails: true,
-			warnings: true,
-			publicPath: false,
-			performance: true
-		}));
+		log.debug(stats.toString());
 
 		console.info('Build Successful');
 

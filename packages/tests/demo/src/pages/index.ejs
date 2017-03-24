@@ -6,11 +6,6 @@
 
 	<title><%= common.title %> | <%= locals.title %></title>
 
-	<% if (production) { %>
-		<link rel="stylesheet" href="/common/index.css">
-		<link rel="stylesheet" href="<%= locals.path %>/index.css">
-	<% } %>
-
 </head>
 
 <body>
@@ -28,13 +23,6 @@
 	    <li><img src="<%= src %>" /></li>
 	  <% }); %>
 	</ul>
-
-	<% if (production) { %>
-		<script src="/manifest/index.js"></script>
-		<script src="/vendor/index.js"></script>
-		<script src="/common/index.js"></script>
-	<% } %>
-	<script src="<%= locals.path %>/index.js"></script>
 
 </body>
 

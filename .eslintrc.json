@@ -8,13 +8,14 @@
 		"xo"
 	],
 	"rules": {
-		"padded-blocks": [
-			"warn",
-			"always"
-		],
+		"capitalized-comments": "off",
 		"func-names": [
 			"warn",
 			"as-needed"
+		],
+		"padded-blocks": [
+			"warn",
+			"always"
 		]
 	}
 }

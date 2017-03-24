@@ -80,9 +80,11 @@ module.exports = webpackConfig => {
 
 	// Configure ExtractTextPlugin
 
+	const filename = cfg.production ? `${cfg.wp.outputContentHash}.${cfg.file.name.css}` : cfg.file.name.css;
+
 	webpackConfig.plugins.push(
 		new ExtractTextPlugin({
-			filename: path.join(cfg.wp.outputName, cfg.file.name.css),
+			filename: path.join(cfg.wp.outputName, filename),
 			allChunks: true,
 			disable: !cfg.production
 		})

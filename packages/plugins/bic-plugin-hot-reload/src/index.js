@@ -7,12 +7,16 @@ const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 
-	if (cfg.production === false) {
+	if (cfg.production === true) {
+
+		webpackConfig.plugins.push(new webpack.HashedModuleIdsPlugin());
+
+		log.debug('added');
+
+	} else {
 
 		webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 		webpackConfig.plugins.push(new webpack.NamedModulesPlugin());
-
-		log.debug('added');
 
 	}
 

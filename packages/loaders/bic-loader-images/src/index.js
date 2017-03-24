@@ -5,11 +5,13 @@ const log = require('@bicjs/bic-logger').get('loader', 'images');
 
 module.exports = webpackConfig => {
 
+	const filename = cfg.production ? cfg.wp.outputHashPath : cfg.wp.outputPath;
+
 	const imagesLoaders = [{
 		loader: 'url-loader',
 		options: {
-			limit: cfg.wp.maxInlineFileSizeLimit,
-			name: cfg.wp.outputPath
+			name: filename,
+			limit: cfg.wp.maxInlineFileSizeLimit
 		}
 	}];
 
