@@ -17,36 +17,53 @@ const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 
+	const splitChunks = [];
+
+	const entryChunks = Object.keys(webpackConfig.entry);
+
 	if (cfg.production === true) {
 
-		/**
-		 * Chunk "common" code loaded in all entry points.
-		 */
-		webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
-			name: cfg.file.common
-		}));
+		if (entryChunks.length > 1) {
 
-		/**
-		 * Chunk "vendor" code loaded from `node_modules`.
-		 */
-		webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
-			name: cfg.file.vendor,
-			chunks: cfg.file.common,
-			minChunks: module => {
+			/**
+			 * Chunk "common" code loaded in all entry points.
+			 */
+			webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
+				name: cfg.file.common,
+				chunks: entryChunks
+			}));
 
-				// this assumes your vendor imports exist in the node_modules directory
-				return module.context && module.context.indexOf('node_modules') !== -1;
+			splitChunks.unshift(cfg.file.common);
 
-			}
-		}));
+			/**
+			 * Chunk "vendor" code loaded from `node_modules`.
+			 */
+			webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
+				name: cfg.file.vendor,
+				chunks: cfg.file.common,
+				minChunks: module => {
 
-		/**
-		 * Chunk webpack "manifest" code.
-		 */
-		webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
-			name: cfg.file.manifest,
-			chunks: cfg.file.common
-		}));
+					return module.context && module.context.indexOf(cfg.file.node) !== -1;
+
+				}
+			}));
+
+			splitChunks.unshift(cfg.file.vendor);
+
+			/**
+			 * Chunk webpack "manifest" code.
+			 */
+			webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
+				name: cfg.file.manifest,
+				chunks: cfg.file.common,
+				minChunks: Infinity
+			}));
+
+			splitChunks.unshift(cfg.file.manifest);
+
+			log.debug('split', splitChunks, 'from', entryChunks.length, 'entry points');
+
+		}
 
 		/**
 		 * TODO: Extract Modernizr from `common` chunk and inline into `<head>` tag.
@@ -57,28 +74,26 @@ module.exports = webpackConfig => {
 		webpackConfig.plugins.push(new ChunkManifestPlugin());
 		webpackConfig.plugins.push(new InlineChunkManifestHtmlWebpackPlugin());
 
-		log.debug('added');
-
 	}
 
-	Object.keys(webpackConfig.entry).reduce((arr, entryName) => {
+	entryChunks.reduce((arr, entryName) => {
 
 		const template = path.join(cfg.file.pages, entryName, cfg.file.name.tmpl);
 		const filename = path.join(entryName, cfg.file.name.html);
-		const inject = cfg.production || 'head';
-		const chunks = cfg.production ? [
-			cfg.file.manifest,
-			cfg.file.vendor,
-			cfg.file.common,
-			entryName
-		] : [
-			entryName
-		];
+		const inject = cfg.production === true || 'head';
+		const minify = cfg.production === true ? Object.assign({}, cfg.wp.min.html) : false;
+		const chunks = splitChunks.slice();
+
+		chunks.push(entryName);
+
+		log.debug('adding chunks', chunks);
+		log.debug('to file', filename);
 
 		arr.push(new HtmlWebpackPlugin({
 			template,
 			filename,
 			inject,
+			minify,
 			chunks
 		}));
 

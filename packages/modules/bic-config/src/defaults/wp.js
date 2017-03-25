@@ -111,6 +111,18 @@ const config = {
 		version: true,
 		// Add warnings
 		warnings: true
+	},
+
+	min: {
+		html: {
+			collapseWhitespace: true,
+			collapseBooleanAttributes: true,
+			collapseInlineTagWhitespace: true,
+			minifyCSS: true,
+			minifyJS: true,
+			minifyURLs: true,
+			removeComments: true
+		}
 	}
 
 };
