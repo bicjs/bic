@@ -21,7 +21,6 @@
     "@bicjs/bic-plugin-lint-styles": "file:../../plugins/bic-plugin-lint-styles",
     "@bicjs/bic-plugin-open-browser": "file:../../plugins/bic-plugin-open-browser",
     "@bicjs/bic-plugin-optimize-output": "file:../../plugins/bic-plugin-optimize-output",
-    "@bicjs/bic-plugin-split-path": "file:../../plugins/bic-plugin-split-path",
     "@bicjs/bic-plugin-stats-graph": "file:../../plugins/bic-plugin-stats-graph",
     "@bicjs/bic-plugin-use-strict": "file:../../plugins/bic-plugin-use-strict",
     "babel-preset-bic": "file:../../configs/babel-preset-bic",

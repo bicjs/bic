@@ -6,6 +6,7 @@ const source = 'src';
 const common = 'common';
 const manifest = 'manifest';
 const vendor = 'vendor';
+const pages = 'pages';
 const reports = 'reports';
 const dist = 'dist';
 const temp = '.tmp';
@@ -24,7 +25,7 @@ const directories = {
 	source,
 
 	// Page specific resources
-	pages: path.join(source, 'pages'),
+	pages,
 
 	// Modular resources
 	modules: path.join(source, 'modules'),

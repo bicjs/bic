@@ -19,29 +19,6 @@ module.exports = webpackConfig => {
 
 	if (cfg.production === true) {
 
-		Object.keys(webpackConfig.entry).reduce((arr, entryName) => {
-
-			/**
-			 * TODO: See if it's necessary to resolve `pages` from `src`.
-			 */
-			const template = path.join('pages', entryName, cfg.file.name.tmpl);
-			const filename = path.join(entryName, cfg.file.name.html);
-
-			arr.push(new HtmlWebpackPlugin({
-				template,
-				filename,
-				inject: 'body',
-				chunks: [
-					cfg.file.vendor,
-					cfg.file.common,
-					entryName
-				]
-			}));
-
-			return arr;
-
-		}, webpackConfig.plugins);
-
 		/**
 		 * Chunk "common" code loaded in all entry points.
 		 */
@@ -86,10 +63,7 @@ module.exports = webpackConfig => {
 
 	Object.keys(webpackConfig.entry).reduce((arr, entryName) => {
 
-		/**
-		 * TODO: See if it's necessary to resolve `pages` from `src`.
-		 */
-		const template = path.join('pages', entryName, cfg.file.name.tmpl);
+		const template = path.join(cfg.file.pages, entryName, cfg.file.name.tmpl);
 		const filename = path.join(entryName, cfg.file.name.html);
 		const inject = cfg.production || 'head';
 		const chunks = cfg.production ? [
