@@ -1,8 +1,8 @@
 {
-	"cache" : true,
-  "files": {
-    "src": [
-      "src/**/*.{js,jsx,css,scss}"
-    ]
-  }
+	"cache": true,
+	"files": {
+		"src": [
+			"src/**/*.{js,jsx,css,scss}"
+		]
+	}
 }

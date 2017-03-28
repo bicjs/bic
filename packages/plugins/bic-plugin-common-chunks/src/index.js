@@ -21,6 +21,8 @@ module.exports = webpackConfig => {
 
 	const entryChunks = Object.keys(webpackConfig.entry);
 
+	const chunks = entryChunks.slice();
+
 	if (cfg.production === true) {
 
 		if (entryChunks.length > 1) {
@@ -30,40 +32,42 @@ module.exports = webpackConfig => {
 			 */
 			webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
 				name: cfg.file.common,
-				chunks: entryChunks
+				chunks,
+				minChunks: 2
 			}));
 
 			splitChunks.unshift(cfg.file.common);
 
-			/**
-			 * Chunk "vendor" code loaded from `node_modules`.
-			 */
-			webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
-				name: cfg.file.vendor,
-				chunks: cfg.file.common,
-				minChunks: module => {
-
-					return module.context && module.context.indexOf(cfg.file.node) !== -1;
-
-				}
-			}));
-
-			splitChunks.unshift(cfg.file.vendor);
-
-			/**
-			 * Chunk webpack "manifest" code.
-			 */
-			webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
-				name: cfg.file.manifest,
-				chunks: cfg.file.common,
-				minChunks: Infinity
-			}));
-
-			splitChunks.unshift(cfg.file.manifest);
-
-			log.debug('split', splitChunks, 'from', entryChunks.length, 'entry points');
+			chunks.push(cfg.file.common);
 
 		}
+
+		/**
+		 * Chunk "vendor" code loaded from `node_modules`.
+		 */
+		webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
+			name: cfg.file.vendor,
+			chunks,
+			minChunks: module => {
+
+				return module.context && module.context.indexOf(cfg.file.node) !== -1;
+
+			}
+		}));
+
+		splitChunks.unshift(cfg.file.vendor);
+
+		/**
+		 * Chunk webpack "manifest" code.
+		 */
+		webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
+			name: cfg.file.manifest,
+			minChunks: Infinity
+		}));
+
+		splitChunks.unshift(cfg.file.manifest);
+
+		log.debug('split', splitChunks, 'from', entryChunks.length, 'entry points');
 
 		/**
 		 * TODO: Extract Modernizr from `common` chunk and inline into `<head>` tag.

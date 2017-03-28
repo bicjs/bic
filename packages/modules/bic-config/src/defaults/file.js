@@ -7,6 +7,8 @@ const common = 'common';
 const manifest = 'manifest';
 const vendor = 'vendor';
 const pages = 'pages';
+const modules = 'modules';
+const modernizr = 'modernizr';
 const reports = 'reports';
 const dist = 'dist';
 const temp = '.tmp';
@@ -28,7 +30,7 @@ const directories = {
 	pages,
 
 	// Modular resources
-	modules: path.join(source, 'modules'),
+	modules,
 
 	// Build 'dest' sub directories
 	dist,
@@ -40,9 +42,10 @@ const directories = {
 	// 3rd party vendor libraries
 	vendor,
 
-	/**
-	 * TODO: Figure out why a manifest needs to be split out...
-	 */
+	// Modernizr
+	modernizr,
+
+	// webpack manifest
 	manifest,
 
 	// Reports, graphs, etc.

@@ -1,37 +1,37 @@
 {
-  "sortToTop": [
-    "name",
+	"sortToTop": [
+		"name",
 		"description",
-    "version",
-    "author"
-  ],
-  "required": [
-    "name",
-		"description",
-    "version",
+		"version",
 		"author"
-  ],
-  "warn": [
-    "keywords",
-    "main",
-    "homepage"
-  ],
-  "requiredOnPrivate": [],
-  "warnOnPrivate": [
-    "name",
-    "version",
-    "description",
-    "main"
-  ],
-  "sortedSubItems": [
-    "dependencies",
-    "devDependencies",
-    "jshintConfig",
-    "scripts",
-    "keywords"
-  ],
-  "quiet": false,
-  "files": [
-    "package.json"
-  ]
+	],
+	"required": [
+		"name",
+		"description",
+		"version",
+		"author"
+	],
+	"warn": [
+		"keywords",
+		"main",
+		"homepage"
+	],
+	"requiredOnPrivate": [],
+	"warnOnPrivate": [
+		"name",
+		"version",
+		"description",
+		"main"
+	],
+	"sortedSubItems": [
+		"dependencies",
+		"devDependencies",
+		"jshintConfig",
+		"scripts",
+		"keywords"
+	],
+	"quiet": false,
+	"files": [
+		"package.json"
+	]
 }
