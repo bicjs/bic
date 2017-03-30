@@ -84,6 +84,24 @@ module.exports = webpackConfig => {
 
 	webpackConfig.module.rules.push(templatesLoader);
 
+	const htmlLoader = {
+		test: /\.html$/i,
+		use: [{
+			loader: 'passthrough-loader',
+			options: {
+				callback: function callback(content) {
+
+					log.error('html', content);
+
+					return content;
+
+				}
+			}
+		}]
+	};
+
+	webpackConfig.module.rules.push(htmlLoader);
+
 	log.debug('added', templatesLoader);
 
 };

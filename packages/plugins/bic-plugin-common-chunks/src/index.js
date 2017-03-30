@@ -17,45 +17,55 @@ const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 
-	const splitChunks = [];
-
 	const entryChunks = Object.keys(webpackConfig.entry);
 
 	const chunks = entryChunks.slice();
 
+	const minChunks = 2;
+
 	if (cfg.production === true) {
-
-		if (entryChunks.length > 1) {
-
-			/**
-			 * Chunk "common" code loaded in all entry points.
-			 */
-			webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
-				name: cfg.file.common,
-				chunks,
-				minChunks: 2
-			}));
-
-			splitChunks.unshift(cfg.file.common);
-
-			chunks.push(cfg.file.common);
-
-		}
 
 		/**
 		 * Chunk "vendor" code loaded from `node_modules`.
 		 */
 		webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
-			name: cfg.file.vendor,
 			chunks,
-			minChunks: module => {
+			name: cfg.file.vendor,
+			minChunks: (module, count) => {
 
-				return module.context && module.context.indexOf(cfg.file.node) !== -1;
+				console.log(cfg.file.vendor, module.resource);
+
+				return module.context && module.context.indexOf(cfg.file.node) >= 0 && count >= minChunks;
 
 			}
 		}));
 
-		splitChunks.unshift(cfg.file.vendor);
+		chunks.push(cfg.file.vendor);
+
+		/**
+		 * Chunk "modernizr" code.
+		 * TODO: Inline Modernizr JS into head?
+		 */
+		webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
+			chunks,
+			name: cfg.file.modernizr,
+			minChunks: (module, count) => {
+
+				console.log(cfg.file.modernizr, module.resource);
+
+				return module.resource && new RegExp(cfg.file.modernizr).test(module.resource) && count >= minChunks;
+
+			}
+		}));
+
+		/**
+		 * Chunk "common" code loaded in all entry points.
+		 */
+		webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
+			chunks,
+			name: cfg.file.common,
+			minChunks
+		}));
 
 		/**
 		 * Chunk webpack "manifest" code.
@@ -64,14 +74,6 @@ module.exports = webpackConfig => {
 			name: cfg.file.manifest,
 			minChunks: Infinity
 		}));
-
-		splitChunks.unshift(cfg.file.manifest);
-
-		log.debug('split', splitChunks, 'from', entryChunks.length, 'entry points');
-
-		/**
-		 * TODO: Extract Modernizr from `common` chunk and inline into `<head>` tag.
-		 */
 
 		webpackConfig.plugins.push(new webpack.HashedModuleIdsPlugin());
 		webpackConfig.plugins.push(new WebpackChunkHash());
@@ -85,9 +87,13 @@ module.exports = webpackConfig => {
 		const template = path.join(cfg.file.pages, entryName, cfg.file.name.tmpl);
 		const filename = path.join(entryName, cfg.file.name.html);
 		const inject = cfg.production === true || 'head';
-		const minify = cfg.production === true ? Object.assign({}, cfg.wp.min.html) : false;
-		const chunks = splitChunks.slice();
+		const minify = cfg.production === true && cfg.debug === false ? Object.assign({}, cfg.wp.min.html) : false;
+		const chunks = [];
 
+		chunks.push(cfg.file.manifest);
+		chunks.push(cfg.file.modernizr);
+		chunks.push(cfg.file.vendor);
+		chunks.push(cfg.file.common);
 		chunks.push(entryName);
 
 		log.debug('adding chunks', chunks);
@@ -98,7 +104,12 @@ module.exports = webpackConfig => {
 			filename,
 			inject,
 			minify,
-			chunks
+			chunks,
+			chunksSortMode: (moduleA, moduleB) => {
+
+				return moduleB.id > moduleA.id;
+
+			}
 		}));
 
 		return arr;
