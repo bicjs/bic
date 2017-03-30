@@ -9,7 +9,7 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "webpack": "~2.2.1"
+    "webpack": "2.3.2"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-hot-reload/README.md",

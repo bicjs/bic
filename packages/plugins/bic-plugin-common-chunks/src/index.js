@@ -21,7 +21,7 @@ module.exports = webpackConfig => {
 
 	const chunks = entryChunks.slice();
 
-	const minChunks = 2;
+	const minChunks = chunks.length;
 
 	if (cfg.production === true) {
 

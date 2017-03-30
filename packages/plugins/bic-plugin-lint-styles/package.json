@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "stylelint-webpack-plugin": "~0.7.0"
+    "stylelint-webpack-plugin": "0.7.0"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-lint-styles/README.md",

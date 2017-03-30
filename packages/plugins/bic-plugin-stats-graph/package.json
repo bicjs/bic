@@ -9,9 +9,9 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "stats-webpack-plugin": "~0.5.0",
-    "webpack-stats-plugin": "~0.1.4",
-    "webpack-visualizer-plugin": "~0.1.10"
+    "stats-webpack-plugin": "0.6.0",
+    "webpack-stats-plugin": "0.1.4",
+    "webpack-visualizer-plugin": "0.1.10"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-stats-graph/README.md",

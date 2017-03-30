@@ -9,9 +9,9 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "babel-core": "~6.24.0",
-    "babel-loader": "~6.4.0",
-    "eslint-loader": "~1.6.1"
+    "babel-core": "6.24.0",
+    "babel-loader": "6.4.0",
+    "eslint-loader": "1.7.0"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-scripts/README.md",

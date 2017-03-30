@@ -9,8 +9,8 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "extract-loader": "~0.1.0",
-    "html-loader": "~0.4.4",
+    "extract-loader": "0.1.0",
+    "html-loader": "0.4.4",
     "passthrough-loader": "file:../../utils/passthrough-loader"
   },
   "devDependencies": {},

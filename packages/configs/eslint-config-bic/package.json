@@ -7,8 +7,8 @@
     "email": "github.raypatterson@gmail.com"
   },
   "dependencies": {
-    "eslint": "~3.18.0",
-    "eslint-config-xo": "~0.18.1"
+    "eslint": "3.18.0",
+    "eslint-config-xo": "0.18.1"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/configs/eslint-config-bic/README.md",

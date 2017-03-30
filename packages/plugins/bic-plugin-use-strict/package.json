@@ -9,8 +9,8 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "case-sensitive-paths-webpack-plugin": "~1.1.4",
-    "webpack": "~2.2.1"
+    "case-sensitive-paths-webpack-plugin": "1.1.4",
+    "webpack": "2.3.2"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-use-strict/README.md",

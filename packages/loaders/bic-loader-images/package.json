@@ -9,8 +9,8 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "image-webpack-loader": "~3.2.0",
-    "url-loader": "~0.5.7"
+    "image-webpack-loader": "3.3.0",
+    "url-loader": "0.5.7"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-images/README.md",
