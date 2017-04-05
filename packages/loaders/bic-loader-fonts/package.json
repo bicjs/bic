@@ -9,8 +9,8 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "file-loader": "0.10.1",
-    "url-loader": "0.5.7"
+    "file-loader": "0.11.1",
+    "url-loader": "0.5.8"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-fonts/README.md",

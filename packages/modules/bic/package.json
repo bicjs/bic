@@ -32,9 +32,9 @@
     "pkg-dir": "1.0.0",
     "req-all": "1.0.0",
     "stylelint-config-bic": "file:../../configs/stylelint-config-bic",
-    "webpack": "2.3.2",
+    "webpack": "2.3.3",
     "webpack-dashboard": "0.3.0",
-    "webpack-dev-server": "2.4.1"
+    "webpack-dev-server": "2.4.2"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/modules/bic/README.md",
