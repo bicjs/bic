@@ -1,6 +1,6 @@
 {
-  "name": "@bicjs/bic-loader-fonts",
-  "description": "Bic website packaging framework images loader.",
+  "name": "@bicjs/bic-plugin-load-templates",
+  "description": "Bic website packaging framework templates loader.",
   "version": "0.0.0-1",
   "author": {
     "name": "Ray Patterson",
@@ -9,18 +9,19 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "file-loader": "0.11.1",
-    "url-loader": "0.5.8"
+    "extract-loader": "0.1.0",
+    "html-loader": "0.4.5",
+    "passthrough-loader": "file:../../utils/passthrough-loader"
   },
   "devDependencies": {},
-  "homepage": "https://github.com/bicjs/bic/blob/master/packages/loaders/bic-loader-fonts/README.md",
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-load-templates/README.md",
   "keywords": [
     "bic",
     "bicjs",
     "build",
     "framework",
-    "images",
     "loader",
+    "templates",
     "webpack",
     "website"
   ],

@@ -25,12 +25,13 @@
     "linklocal": "2.8.0",
     "npm-check": "5.4.0",
     "npm-link-check": "1.2.0",
+    "npm-run-all": "4.0.2",
     "nsp": "2.6.3",
     "ntl": "1.2.0"
   },
   "engines": {
-    "node": ">= 6.10.0",
-    "npm": ">= 3.10.0"
+    "node": ">= 6",
+    "npm": ">= 3"
   },
   "homepage": "https://github.com/bicjs/bic/README.md",
   "keywords": [
@@ -46,27 +47,24 @@
   "main": ".",
   "repository": "https://github.com/bicjs/bic/",
   "scripts": {
-    "bootstrap": "bootstrap:pre && bootstrap:exec && bootstrap:post",
-    "bootstrap:exec": "lerna exec -- npm install",
-    "bootstrap:post": "npm run link && npm run tidy",
-    "bootstrap:pre": "npm run clean",
-		"bootstrap:update": "npm run link:rm && npm run bootstrap:exec && npm run link",
+    "bootstrap": "run-s clean deps link tidy",
     "clean": "npm cache clean && lerna clean --yes",
     "commit": "git-cz",
     "demo": "lerna exec --scope demo -- npm run dev",
+    "deps": "lerna exec -- npm install",
     "fixpack": "fixpack & lerna exec -- fixpack",
     "john": "john & lerna exec -- john",
     "link": "lerna exec --scope demo -- linklocal link -r",
-    "link:rm": "lerna exec --scope demo -- linklocal unlink -r",
     "lint": "lerna exec --ignore demo -- eslint --fix .",
     "ls": "ntl .",
+    "patch": "run-s unlink deps link",
     "precommit": "npm run lint",
     "prepush": "npm run test",
     "preversion": "npm-link-check",
     "security": "lerna exec --ignore demo -- nsp check --output summary",
     "test": "lerna run test",
-    "tidy": "npm run john & npm run fixpack",
-    "unlink": "lerna run unlink",
+    "tidy": "run-p john fixpack",
+    "unlink": "lerna exec --scope demo -- linklocal unlink -r",
     "upgrade": "npm-check -u && npm run link:rm && lerna exec --concurrency 1 -- npm-check -u && npm run link"
   }
 }

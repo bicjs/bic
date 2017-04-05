@@ -14,7 +14,6 @@ addEntry(webpackConfig);
  */
 const requirePackages = require('../utils/require-packages');
 
-requirePackages('**/bic-loader-*', webpackConfig);
 requirePackages('**/bic-plugin-*', webpackConfig);
 
 require('@bicjs/bic-logger')

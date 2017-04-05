@@ -3,7 +3,7 @@
   "packages": [
     "packages/configs/*",
 		"packages/tests/*",
-		"packages/loaders/*",
+		"packages/plugins/*",
 		"packages/modules/*",
 		"packages/plugins/*",
     "packages/utils/*"
