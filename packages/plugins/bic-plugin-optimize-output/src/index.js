@@ -26,6 +26,10 @@ module.exports = webpackConfig => {
 			}
 		}));
 
+		/**
+		 * TODO: Add [`PurifyCSSPlugin`](https://github.com/webpack-contrib/purifycss-webpack)
+		 */
+
 		log.debug('added');
 
 	}

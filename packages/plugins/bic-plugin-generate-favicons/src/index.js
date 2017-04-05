@@ -8,7 +8,7 @@ const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 
-	if (cfg.production) {
+	if (cfg.production === true) {
 
 		webpackConfig.plugins.push(new FaviconsWebpackPlugin({
 			// Your source logo

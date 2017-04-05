@@ -40,7 +40,11 @@ module.exports = webpackConfig => {
 					/**
 					 * Absolute path to page
 					 */
-					const localsPath = path.relative(cfg.file.absolute.pages, pageDir);
+					const localsPath = path.relative(
+						cfg.file.absolute.source,
+						cfg.file.pages,
+						pageDir
+					);
 
 					locals.path = localsPath === '' ? localsPath : `/${localsPath}`;
 

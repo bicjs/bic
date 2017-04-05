@@ -2,17 +2,6 @@
 
 const path = require('path');
 
-const source = 'src';
-const common = 'common';
-const manifest = 'manifest';
-const vendor = 'vendor';
-const pages = 'pages';
-const modules = 'modules';
-const modernizr = 'modernizr';
-const reports = 'reports';
-const dist = 'dist';
-const temp = '.tmp';
-
 const config = {
 	cwd: process.cwd()
 };
@@ -24,43 +13,11 @@ const directories = {
 	local: 'local_modules',
 
 	// Presentation layer source
-	source,
+	source: 'src',
 
 	// Build 'dest' sub directories
-	dist,
-	temp,
-
-	/**
-	 * FIXME: None of the following paths are correct as absolute
-	 * Find uses of absolute paths and correct
-	 */
-
-	// Page specific resources
-	pages,
-
-	// Modular resources
-	modules,
-
-	// Assets common to all app entry points
-	common,
-
-	// 3rd party vendor libraries
-	vendor,
-
-	// Modernizr
-	modernizr,
-
-	// webpack manifest
-	manifest,
-
-	// Reports, graphs, etc.
-	reports,
-
-	// These 'common' map 1:1 from source to dest, and so are useful for copying, plugins, etc.
-	favicons: path.join(common, 'favicons'),
-	images: path.join(common, 'images'),
-	fonts: path.join(common, 'fonts'),
-	data: path.join(common, 'data')
+	dist: 'dist',
+	temp: '.tmp'
 };
 
 // Good for webpack
@@ -73,17 +30,49 @@ directories.absolute = Object.keys(directories)
 
 	}, {});
 
-// Add File names
-Object.assign(config, directories, {
-	name: {
-		js: 'index.js',
-		css: 'index.css',
-		sass: 'index.scss',
-		html: 'index.html',
-		tmpl: 'index.ejs',
-		data: 'config.json',
-		favicon: 'favicon.png'
+const common = 'common';
+
+Object.assign(config, directories,
+
+	{
+		// Assets common to all app entry points
+		common,
+		favicons: path.join(common, 'favicons'),
+		images: path.join(common, 'images'),
+		fonts: path.join(common, 'fonts'),
+		data: path.join(common, 'data'),
+
+		// Page specific resources
+		pages: 'pages',
+
+		// Modular resources
+		modules: 'modules',
+
+		// 3rd party vendor libraries
+		vendor: 'vendor',
+
+		// Modernizr
+		modernizr: 'modernizr',
+
+		// webpack manifest
+		manifest: 'manifest',
+
+		// Reports, graphs, etc.
+		reports: 'reports'
+	},
+
+	{
+		// Add File names
+		name: {
+			js: 'index.js',
+			css: 'index.css',
+			sass: 'index.scss',
+			html: 'index.html',
+			tmpl: 'index.ejs',
+			data: 'config.json',
+			favicon: 'favicon.png'
+		}
 	}
-});
+);
 
 module.exports = config;
