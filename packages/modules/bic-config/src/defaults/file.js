@@ -19,22 +19,27 @@ const config = {
 
 const directories = {
 
-	/**
-	 *  Application & Presentation
-	 */
+	// Packages, libraries, pre-NPM modules
+	node: 'node_modules',
+	local: 'local_modules',
 
 	// Presentation layer source
 	source,
+
+	// Build 'dest' sub directories
+	dist,
+	temp,
+
+	/**
+	 * FIXME: None of the following paths are correct as absolute
+	 * Find uses of absolute paths and correct
+	 */
 
 	// Page specific resources
 	pages,
 
 	// Modular resources
 	modules,
-
-	// Build 'dest' sub directories
-	dist,
-	temp,
 
 	// Assets common to all app entry points
 	common,
@@ -51,15 +56,11 @@ const directories = {
 	// Reports, graphs, etc.
 	reports,
 
-	// These 'common' map 1:1 from source to dest, and so are useful for copying
+	// These 'common' map 1:1 from source to dest, and so are useful for copying, plugins, etc.
 	favicons: path.join(common, 'favicons'),
 	images: path.join(common, 'images'),
 	fonts: path.join(common, 'fonts'),
-	data: path.join(common, 'data'),
-
-	// Packages, libraries, pre-NPM modules
-	node: 'node_modules',
-	local: 'local_modules'
+	data: path.join(common, 'data')
 };
 
 // Good for webpack
@@ -72,7 +73,7 @@ directories.absolute = Object.keys(directories)
 
 	}, {});
 
-// Add file names
+// Add File names
 Object.assign(config, directories, {
 	name: {
 		js: 'index.js',
@@ -80,7 +81,8 @@ Object.assign(config, directories, {
 		sass: 'index.scss',
 		html: 'index.html',
 		tmpl: 'index.ejs',
-		data: 'config.json'
+		data: 'config.json',
+		favicon: 'favicon.png'
 	}
 });
 
