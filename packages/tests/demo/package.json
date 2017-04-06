@@ -14,7 +14,8 @@
     "hack-font": "2.0.19"
   },
   "devDependencies": {
-    "@bicjs/bic-cli": "file:../../modules/bic-cli"
+    "@bicjs/bic-cli": "file:../../modules/bic-cli",
+    "lodash": "4.17.4"
   },
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/test/demo/README.md",
   "keywords": [

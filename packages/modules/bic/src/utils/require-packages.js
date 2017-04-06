@@ -10,11 +10,6 @@ const modulesPath = require('./get-modules-path');
 
 module.exports = (searchPattern, webpackConfig) => {
 
-	/**
-	 * Import framework presets
-	 * TODO: Import project presets
-	 */
-
 	const src = [
 		path.join(modulesPath.node, searchPattern),
 		path.join(cfg.file.cwd, cfg.extensions, searchPattern)

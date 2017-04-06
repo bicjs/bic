@@ -2,9 +2,9 @@
 
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
-const log = require('@bicjs/bic-logger').get('plugin', 'browsersync proxy');
+const log = require('@bicjs/bic-logger').get('plugin', 'browser sync');
 const cfg = require('@bicjs/bic-config').get();
-
+//
 module.exports = webpackConfig => {
 
 	if (cfg.production === false) {
@@ -14,7 +14,13 @@ module.exports = webpackConfig => {
 			port: cfg.server.port + 1,
 			proxy: cfg.server.url
 		}, {
-			reload: false
+			reload: false,
+			name: 'bic',
+			callback: obj => {
+
+				log.debug('callback', obj);
+
+			}
 		}));
 
 		log.debug('added');

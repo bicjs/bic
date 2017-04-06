@@ -13,7 +13,7 @@ module.exports = webpackConfig => {
 	}));
 
 	webpackConfig.plugins.push(new webpack.DefinePlugin({
-		debug: cfg.debug
+		DEBUG: cfg.debug
 	}));
 
 	log.debug('added', cfg.debug);

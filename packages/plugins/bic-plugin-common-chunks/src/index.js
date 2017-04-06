@@ -15,12 +15,9 @@ const cfg = require('@bicjs/bic-config').get();
  *
  * NOTE: We're not chunking and inlining Modernizr because:
  *
- * 		1. Paul Irish says it's [irresponsible](https://github.com/Modernizr/Modernizr/issues/878#issuecomment-41448059)
- *   	2. The `HtmlWebpackPlugin` won't order the Modernizr chunk as a dependency.
- *    3. The `ScriptExtHtmlWebpackPlugin` can't inline scripts into the `<head>` tag.
- *    4. Allowing this plugin to have knoledge of Modernizr is breaking encapsulation
- *    5. Feature detection & progressive enhancement vs. polyfilling is open to debate.
- *    6. I'm tired.
+ * 		1. Paul Irish says it's [irresponsible](https://github.com/Modernizr/Modernizr/issues/878#issuecomment-41448059).
+ *   	2. The `HtmlWebpackPlugin` [won't order based on `chunks`. option](https://github.com/jantimon/html-webpack-plugin/pull/423/)
+ *    3. The `ScriptExtHtmlWebpackPlugin` [can't inline scripts into the `<head>` tag](https://github.com/numical/script-ext-html-webpack-plugin/issues/6).
  *
  */
 
@@ -96,7 +93,6 @@ module.exports = webpackConfig => {
 		const chunks = [];
 
 		chunks.push(cfg.file.manifest);
-		chunks.push(cfg.file.modernizr);
 		chunks.push(cfg.file.vendor);
 		chunks.push(cfg.file.common);
 		chunks.push(entryName);

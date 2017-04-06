@@ -1,6 +1,6 @@
 {
-  "name": "@bicjs/bic-plugin-browsersync-proxy",
-  "description": "Bic website packaging framework browsersync proxy plugin.",
+  "name": "@bicjs/bic-plugin-browser-sync",
+  "description": "Bic website packaging framework browser sync plugin.",
   "version": "0.0.0-1",
   "author": {
     "name": "Ray Patterson",
@@ -13,7 +13,7 @@
     "browser-sync-webpack-plugin": "1.1.4"
   },
   "devDependencies": {},
-  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-browsersync-proxy/README.md",
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-browser-sync/README.md",
   "keywords": [
     "bic",
     "bicjs",
