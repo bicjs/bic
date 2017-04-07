@@ -1,7 +1,8 @@
 'use strict';
 
+const path = require('path');
 const cfg = require('@bicjs/bic-config').get();
-const log = require('@bicjs/bic-logger').get('loader', 'scripts');
+const log = require('@bicjs/bic-logger').get('load scripts');
 
 module.exports = webpackConfig => {
 
@@ -11,6 +12,7 @@ module.exports = webpackConfig => {
 		use: [{
 			loader: 'eslint-loader',
 			options: {
+				configFile: path.join(process.cwd(), '.eslintrc.json'),
 				emitWarning: true,
 				emitError: true,
 				failOnWarning: false,

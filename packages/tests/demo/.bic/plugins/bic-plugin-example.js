@@ -1,6 +1,6 @@
 'use strict';
 
-const log = require('@bicjs/bic-logger').get('loader', 'test');
+const log = require('@bicjs/bic-logger').get('plugin example');
 
 module.exports = () => {
 

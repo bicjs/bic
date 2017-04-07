@@ -4,7 +4,7 @@ const path = require('path');
 const fs = require('fs');
 
 const cfg = require('@bicjs/bic-config').get();
-const log = require('@bicjs/bic-logger').get('loader', 'modernizr');
+const log = require('@bicjs/bic-logger').get('load modernizr');
 
 const resourceConfigPath = path.resolve(cfg.file.cwd, '.modernizr-autorc');
 

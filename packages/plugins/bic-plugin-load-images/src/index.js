@@ -1,7 +1,7 @@
 'use strict';
 
 const cfg = require('@bicjs/bic-config').get();
-const log = require('@bicjs/bic-logger').get('loader', 'images');
+const log = require('@bicjs/bic-logger').get('load images');
 
 module.exports = webpackConfig => {
 

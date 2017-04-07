@@ -27,5 +27,9 @@ module.exports = {
 				ignoreInlineComments: true
 			}
 		]
+	},
+	globals: {
+		__DEBUG__: false,
+		__CONFIG__: false
 	}
 };

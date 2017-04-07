@@ -2,9 +2,7 @@
 
 const logger = require('@bicjs/bic-logger');
 
-const config = require('@bicjs/bic-config');
-
-const cfg = config.get();
+const cfg = require('@bicjs/bic-config').get();
 
 logger.setLevel(cfg.debug ? logger.LEVEL.debug : logger.LEVEL.error);
 

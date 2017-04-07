@@ -3,7 +3,7 @@
 const path = require('path');
 
 const cfg = require('@bicjs/bic-config').get();
-const log = require('@bicjs/bic-logger').get('loader', 'templates');
+const log = require('@bicjs/bic-logger').get('load templates');
 
 module.exports = webpackConfig => {
 

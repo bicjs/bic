@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const cfg = require('@bicjs/bic-config').get();
-const log = require('@bicjs/bic-logger').get('loader', 'styles');
+const log = require('@bicjs/bic-logger').get('load styles');
 
 module.exports = webpackConfig => {
 

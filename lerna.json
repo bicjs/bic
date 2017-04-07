@@ -5,7 +5,6 @@
 		"packages/tests/*",
 		"packages/plugins/*",
 		"packages/modules/*",
-		"packages/plugins/*",
     "packages/utils/*"
   ],
   "version": "independent"

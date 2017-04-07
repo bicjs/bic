@@ -2,7 +2,7 @@
 
 console.info('Loading: bic config – PRODUCTION');
 
-const config = require('./bic.config');
+const config = require('./default');
 
 module.exports = Object.assign(config, {
 	canWeAddAnythingHere: true

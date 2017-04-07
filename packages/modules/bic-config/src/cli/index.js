@@ -1,12 +1,6 @@
 const immutable = require('seamless-immutable');
 
 const COMMAND = {
-	production: {
-		alias: 'p',
-		name: 'production',
-		description: 'Package for production',
-		default: false
-	},
 	clean: {
 		alias: 'c',
 		name: 'clean',
@@ -19,23 +13,29 @@ const COMMAND = {
 		description: 'Enable debug mode',
 		default: false
 	},
+	production: {
+		alias: 'p',
+		name: 'production',
+		description: 'Package for production',
+		default: false
+	},
 	open: {
 		alias: 'o',
 		name: 'open',
-		description: 'Open in browser (production)',
+		description: 'Open in browser',
 		default: false
-	},
-	rc: {
-		alias: 'f',
-		name: 'rc',
-		description: 'Specify config file',
-		default: 'bic.config.js'
 	},
 	extensions: {
 		alias: 'x',
 		name: 'extensions',
 		description: 'Specify extensions folder',
-		default: 'bic'
+		default: './'
+	},
+	rc: {
+		alias: 'f',
+		name: 'rc',
+		description: 'Specify config file',
+		default: 'config.default.js'
 	}
 };
 

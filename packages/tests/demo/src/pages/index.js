@@ -7,3 +7,5 @@
 import common from 'common'; // eslint-disable-line no-unused-vars
 
 console.log('index');
+
+console.log('__DEBUG__', __DEBUG__);
