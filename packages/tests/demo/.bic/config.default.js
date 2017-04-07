@@ -3,6 +3,7 @@
 const _ = require('lodash');
 
 var config = {
+	url: 'https://www.bicjs.com',
 	common: {
 		title: 'Prototype App',
 		images: [

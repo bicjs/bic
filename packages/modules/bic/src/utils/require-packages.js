@@ -1,19 +1,10 @@
 'use strict';
 
-const path = require('path');
 const glob = require('globby');
 
 const log = require('@bicjs/bic-logger').get('require packages');
-const cfg = require('@bicjs/bic-config').get();
 
-const modulesPath = require('./get-modules-path');
-
-module.exports = (searchPattern, webpackConfig) => {
-
-	const src = [
-		path.join(modulesPath.node, searchPattern),
-		path.join(cfg.file.cwd, cfg.extensions, searchPattern)
-	];
+module.exports = (src, webpackConfig) => {
 
 	log.debug('searching', src);
 

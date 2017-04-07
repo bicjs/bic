@@ -23,6 +23,7 @@
     "@bicjs/bic-plugin-load-templates": "file:../../plugins/bic-plugin-load-templates",
     "@bicjs/bic-plugin-open-browser": "file:../../plugins/bic-plugin-open-browser",
     "@bicjs/bic-plugin-optimize-output": "file:../../plugins/bic-plugin-optimize-output",
+    "@bicjs/bic-plugin-site-map": "file:../../plugins/bic-plugin-site-map",
     "@bicjs/bic-plugin-stats-graph": "file:../../plugins/bic-plugin-stats-graph",
     "@bicjs/bic-plugin-use-strict": "file:../../plugins/bic-plugin-use-strict",
     "babel-preset-bic": "file:../../configs/babel-preset-bic",

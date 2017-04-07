@@ -37,7 +37,7 @@ module.exports = webpackConfig => {
 
 		log.debug(stats.toString());
 
-		console.info('Build Successful');
+		log.info('Build Successful');
 
 		if (cfg.open) {
 

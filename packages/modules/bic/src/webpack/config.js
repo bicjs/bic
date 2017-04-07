@@ -1,5 +1,9 @@
 'use strict';
 
+const path = require('path');
+
+const cfg = require('@bicjs/bic-config').get();
+
 const webpackConfig = require('./defaults');
 
 /**
@@ -13,11 +17,23 @@ addEntry(webpackConfig);
  * Add loaders & plugins
  */
 const requirePackages = require('../utils/require-packages');
+const modulesPath = require('../utils/get-modules-path');
 
-requirePackages('**/bic-plugin-*', webpackConfig);
+const searchPattern = 'bic-plugin-*';
 
-require('@bicjs/bic-logger')
-	.get('webpack config')
-	.debug(webpackConfig);
+[
+
+	path.join(modulesPath.node, '@bicjs', searchPattern),
+	path.join(cfg.file.cwd, cfg.extensions, 'plugins', searchPattern)
+
+].forEach(src => {
+
+	requirePackages(src, webpackConfig);
+
+});
+
+const log = require('@bicjs/bic-logger').get('webpack config');
+
+log.silly(webpackConfig);
 
 module.exports = webpackConfig;

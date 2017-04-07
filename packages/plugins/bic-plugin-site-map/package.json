@@ -1,0 +1,35 @@
+{
+  "name": "@bicjs/bic-plugin-site-map",
+  "description": "Bic website packaging framework site map plugin.",
+  "version": "0.0.0-1",
+  "author": {
+    "name": "Ray Patterson",
+    "email": "github.raypatterson@gmail.com"
+  },
+  "dependencies": {
+    "@bicjs/bic-config": "file:../../modules/bic-config",
+    "@bicjs/bic-logger": "file:../../modules/bic-logger",
+    "sitemap-webpack-plugin": "0.3.0",
+    "webpack": "2.3.3"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-site-map/README.md",
+  "keywords": [
+    "bic",
+    "bicjs",
+    "build",
+    "framework",
+    "plugin",
+    "webpack",
+    "website"
+  ],
+  "main": "./src",
+  "peerDependencies": {
+    "@bicjs/bic": "file:../../modules/bic"
+  },
+  "scripts": {
+    "test": "npm run test:pass",
+    "test:fail": "exit 1",
+    "test:pass": "exit 0"
+  }
+}
