@@ -2,7 +2,7 @@
 
 const SitemapPlugin = require('sitemap-webpack-plugin');
 
-const log = require('@bicjs/bic-logger').get('plugin', 'site map');
+const log = require('@bicjs/bic-logger').get('plugin', 'robots text');
 const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
@@ -31,6 +31,7 @@ module.exports = webpackConfig => {
 			}, []);
 
 		webpackConfig.plugins.push(new SitemapPlugin(cfg.url, paths, {
+			fileName: cfg.file.name.sitemap,
 			lastMod: true,
 			skipGzip: true,
 			changeFeq: 'monthly'

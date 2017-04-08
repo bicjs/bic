@@ -1,6 +1,6 @@
 {
-  "name": "@bicjs/bic-plugin-site-map",
-  "description": "Bic website packaging framework site map plugin.",
+  "name": "@bicjs/bic-plugin-robots-text",
+  "description": "Bic website packaging framework robots text plugin.",
   "version": "0.0.0-1",
   "author": {
     "name": "Ray Patterson",
@@ -9,10 +9,11 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "sitemap-webpack-plugin": "0.3.0"
+    "@tanepiper/robots-webpack-plugin": "0.4.0",
+		"url-join": "1.1.0"
   },
   "devDependencies": {},
-  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-site-map/README.md",
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-robots-text/README.md",
   "keywords": [
     "bic",
     "bicjs",

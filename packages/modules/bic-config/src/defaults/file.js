@@ -70,7 +70,8 @@ Object.assign(config, directories,
 			html: 'index.html',
 			tmpl: 'index.ejs',
 			data: 'config.json',
-			favicon: 'favicon.png'
+			favicon: 'favicon.png',
+			sitemap: 'sitemap.xml'
 		}
 	}
 );
