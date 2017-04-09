@@ -8,18 +8,16 @@ const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 
-	if (cfg.production === false) {
+	const config = {
+		sitemap: urljoin(cfg.url, cfg.file.name.sitemap),
+		userAgents: [{
+			name: '*',
+			disallow: cfg.production === false ? ['/'] : ''
+		}]
+	};
 
-		webpackConfig.plugins.push(new RobotsPlugin({
-			sitemap: urljoin(cfg.url, cfg.file.name.sitemap),
-			userAgents: [{
-				name: '*',
-				disallow: ['/']
-			}]
-		}));
+	webpackConfig.plugins.push(new RobotsPlugin(config));
 
-		log.debug('added');
-
-	}
+	log.debug('added', config);
 
 };
