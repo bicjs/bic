@@ -9,6 +9,8 @@ const log = require('@bicjs/bic-logger').get('load styles');
 
 module.exports = webpackConfig => {
 
+	log.profile('start');
+
 	// PostCSS
 
 	const postcssLoader = {
@@ -50,6 +52,8 @@ module.exports = webpackConfig => {
 		postcssLoader
 	].concat(sassLoaders);
 
+	log.debug('sass loaders', sassLoaders);
+
 	// Add SASS Loader
 	webpackConfig.module.rules.push({
 		test: /\.scss$/i,
@@ -59,14 +63,14 @@ module.exports = webpackConfig => {
 		})
 	});
 
-	log.debug('added', sassLoaders);
-
 	// Add CSS Loader
 
 	let cssLoaders = [
 		cssLoader,
 		postcssLoader
 	];
+
+	log.debug('css loaders', cssLoaders);
 
 	webpackConfig.module.rules.push({
 		test: /\.css$/i,
@@ -76,7 +80,7 @@ module.exports = webpackConfig => {
 		})
 	});
 
-	log.debug('added', cssLoaders);
+	log.info('added');
 
 	// Configure ExtractTextPlugin
 
@@ -90,6 +94,8 @@ module.exports = webpackConfig => {
 		})
 	);
 
-	log.debug(`CSS extract is ${cfg.production ? 'enabled' : 'disabled'}`);
+	log.info(`CSS extract is ${cfg.production ? 'enabled' : 'disabled'}`);
+
+	log.profile('start');
 
 };

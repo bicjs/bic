@@ -7,6 +7,8 @@ const log = require('@bicjs/bic-logger').get('load templates');
 
 module.exports = webpackConfig => {
 
+	log.profile('start');
+
 	const templatesLoader = {
 		test: /\.(ejs|hbs|njk|pug)$/i,
 		use: [{
@@ -86,6 +88,8 @@ module.exports = webpackConfig => {
 		}]
 	};
 
+	log.debug(templatesLoader);
+
 	webpackConfig.module.rules.push(templatesLoader);
 
 	const htmlLoader = {
@@ -106,6 +110,10 @@ module.exports = webpackConfig => {
 
 	webpackConfig.module.rules.push(htmlLoader);
 
-	log.debug('added', templatesLoader);
+	log.debug(htmlLoader);
+
+	log.info('added');
+
+	log.profile('start');
 
 };

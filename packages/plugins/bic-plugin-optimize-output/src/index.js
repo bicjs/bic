@@ -11,6 +11,8 @@ module.exports = webpackConfig => {
 
 	if (cfg.production === true) {
 
+		log.profile('start');
+
 		webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
 			sourceMap: cfg.debug,
 			compress: {
@@ -30,7 +32,9 @@ module.exports = webpackConfig => {
 		 * TODO: Add [`PurifyCSSPlugin`](https://github.com/webpack-contrib/purifycss-webpack)
 		 */
 
-		log.debug('added');
+		log.info('added');
+
+		log.profile('start');
 
 	}
 

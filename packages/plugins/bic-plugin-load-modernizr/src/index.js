@@ -16,6 +16,10 @@ module.exports = webpackConfig => {
 
 	if (fs.existsSync(resourceConfigPath)) {
 
+		log.debug(resourceConfigPath);
+
+		log.profile('start');
+
 		if (cfg.debug === false) {
 
 			/**
@@ -39,16 +43,18 @@ module.exports = webpackConfig => {
 			}
 		};
 
-		webpackConfig.module.rules.push(modernizrLoader);
+		log.debug(modernizrLoader);
 
-		log.debug('added', modernizrLoader);
+		webpackConfig.module.rules.push(modernizrLoader);
 
 		webpackConfig
 			.resolve
 			.alias
 			.modernizr$ = resourceConfigPath;
 
-		log.debug('loaded', resourceConfigPath);
+		log.info('loaded');
+
+		log.profile('start');
 
 	}
 

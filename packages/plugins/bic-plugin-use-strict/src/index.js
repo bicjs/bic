@@ -8,9 +8,13 @@ const log = require('@bicjs/bic-logger').get('plugin', 'use strict');
 
 module.exports = webpackConfig => {
 
+	log.profile('start');
+
 	webpackConfig.plugins.push(new webpack.NoEmitOnErrorsPlugin());
 	webpackConfig.plugins.push(new CaseSensitivePathsPlugin());
 
-	log.debug('added');
+	log.info('added');
+
+	log.profile('start');
 
 };

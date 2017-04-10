@@ -5,7 +5,7 @@ const log = require('@bicjs/bic-logger').get('load fonts');
 
 module.exports = webpackConfig => {
 
-	log.debug('init');
+	log.profile('start');
 
 	const filename = cfg.production ? cfg.wp.outputHashPath : cfg.wp.outputPath;
 
@@ -21,9 +21,9 @@ module.exports = webpackConfig => {
 		}]
 	};
 
-	webpackConfig.module.rules.push(woffLoader);
+	log.debug(woffLoader);
 
-	log.debug('added', woffLoader);
+	webpackConfig.module.rules.push(woffLoader);
 
 	const fontLoader = {
 		test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]+)?$/i,
@@ -35,8 +35,12 @@ module.exports = webpackConfig => {
 		}]
 	};
 
+	log.debug(fontLoader);
+
 	webpackConfig.module.rules.push(fontLoader);
 
-	log.debug('added', fontLoader);
+	log.info('added');
+
+	log.profile('start');
 
 };

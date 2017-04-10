@@ -4,7 +4,7 @@ const logger = require('@bicjs/bic-logger');
 
 const cfg = require('@bicjs/bic-config').get();
 
-logger.setLevel(cfg.debug ? logger.LEVEL.debug : logger.LEVEL.error);
+logger.setLevel(cfg.log);
 
 const log = logger.get('init');
 

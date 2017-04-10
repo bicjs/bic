@@ -1,40 +1,56 @@
 const immutable = require('seamless-immutable');
 
+const logger = require('@bicjs/bic-logger');
+
 const COMMAND = {
-	clean: {
-		alias: 'c',
-		name: 'clean',
-		description: 'Clean build directory',
-		default: false
+	log: {
+		alias: 'l',
+		name: 'log',
+		description: 'Specify log level',
+		type: 'string',
+		choices: Object.keys(logger.LEVEL),
+		default: logger.LEVEL.error
 	},
 	debug: {
 		alias: 'd',
 		name: 'debug',
 		description: 'Enable debug mode',
+		type: 'boolean',
 		default: false
 	},
 	production: {
 		alias: 'p',
 		name: 'production',
-		description: 'Package for production',
+		description: 'Enable production mode',
+		type: 'boolean',
+		default: false
+	},
+	clean: {
+		alias: 'c',
+		name: 'clean',
+		description: 'Clean build directory',
+		type: 'boolean',
 		default: false
 	},
 	open: {
 		alias: 'o',
 		name: 'open',
 		description: 'Open in browser',
+		type: 'boolean',
 		default: false
 	},
 	extensions: {
 		alias: 'x',
 		name: 'extensions',
 		description: 'Specify extensions folder',
-		default: './'
+		type: 'string',
+		default: '.'
 	},
 	rc: {
 		alias: 'f',
 		name: 'rc',
 		description: 'Specify config file',
+		type: 'string',
 		default: 'config.default.js'
 	}
 };

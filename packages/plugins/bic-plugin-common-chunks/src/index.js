@@ -23,25 +23,27 @@ const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 
+	log.profile('start');
+
 	const entryChunks = Object.keys(webpackConfig.entry);
 
-	const chunks = entryChunks.slice();
-
-	const minChunks = chunks.length;
-
-	const isExternal = module => {
-
-		return module.context && module.context.indexOf(cfg.file.node) >= 0;
-
-	};
-
-	const isCommon = count => {
-
-		return count >= minChunks;
-
-	};
-
 	if (cfg.production === true) {
+
+		const chunks = entryChunks.slice();
+
+		const minChunks = chunks.length;
+
+		const isExternal = module => {
+
+			return module.context && module.context.indexOf(cfg.file.node) >= 0;
+
+		};
+
+		const isCommon = count => {
+
+			return count >= minChunks;
+
+		};
 
 		/**
 		 * Chunk "common" code loaded in all entry points.
@@ -111,5 +113,9 @@ module.exports = webpackConfig => {
 		return arr;
 
 	}, webpackConfig.plugins);
+
+	log.info('added');
+
+	log.profile('start');
 
 };

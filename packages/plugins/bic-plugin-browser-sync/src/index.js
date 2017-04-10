@@ -9,20 +9,28 @@ module.exports = webpackConfig => {
 
 	if (cfg.production === false) {
 
-		webpackConfig.plugins.push(new BrowserSyncPlugin({
+		log.profile('start');
+
+		const options = {
 			host: cfg.server.host,
 			port: cfg.server.port + 1,
 			proxy: cfg.server.url
-		}, {
+		};
+
+		log.debug(options);
+
+		webpackConfig.plugins.push(new BrowserSyncPlugin(options, {
 			reload: false,
 			callback: () => {
 
-				log.debug('started');
+				log.info('started');
 
 			}
 		}));
 
-		log.debug('added');
+		log.info('added');
+
+		log.profile('start');
 
 	}
 

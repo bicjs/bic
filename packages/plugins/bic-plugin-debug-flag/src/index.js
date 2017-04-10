@@ -7,6 +7,10 @@ const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 
+	log.profile('start');
+
+	log.debug(cfg.debug);
+
 	webpackConfig.plugins.push(new webpack.LoaderOptionsPlugin({
 		minimize: cfg.debug === false,
 		debug: cfg.debug
@@ -16,6 +20,8 @@ module.exports = webpackConfig => {
 		__DEBUG__: cfg.debug
 	}));
 
-	log.debug('added', cfg.debug);
+	log.info('added');
+
+	log.profile('start');
 
 };

@@ -10,7 +10,9 @@ module.exports = webpackConfig => {
 
 	if (cfg.production === true) {
 
-		webpackConfig.plugins.push(new FaviconsWebpackPlugin({
+		log.profile('start');
+
+		const options = {
 			// Your source logo
 			logo: path.join(cfg.file.favicons, cfg.file.name.favicon),
 			// The prefix for all image files (might be a folder or a name)
@@ -42,9 +44,15 @@ module.exports = webpackConfig => {
 				yandex: false,
 				windows: false
 			}
-		}));
+		};
 
-		log.debug('added');
+		log.debug(options);
+
+		webpackConfig.plugins.push(new FaviconsWebpackPlugin(options));
+
+		log.info('added');
+
+		log.profile('start');
 
 	}
 

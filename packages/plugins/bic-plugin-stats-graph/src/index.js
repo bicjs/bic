@@ -14,6 +14,8 @@ module.exports = webpackConfig => {
 
 	if (cfg.production === true) {
 
+		log.profile('start');
+
 		webpackConfig.plugins.push(new WebpackVisualizerPlugin({
 			filename: path.join(dest, 'index.html')
 		}));
@@ -25,6 +27,8 @@ module.exports = webpackConfig => {
 		webpackConfig.plugins.push(new StatsPlugin(path.join(dest, 'stats.json')));
 
 		log.debug('added');
+
+		log.profile('start');
 
 	}
 

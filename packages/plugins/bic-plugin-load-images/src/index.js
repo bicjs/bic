@@ -5,6 +5,8 @@ const log = require('@bicjs/bic-logger').get('load images');
 
 module.exports = webpackConfig => {
 
+	log.profile('start');
+
 	const filename = cfg.production ? cfg.wp.outputHashPath : cfg.wp.outputPath;
 
 	const imagesLoaders = [{
@@ -36,11 +38,15 @@ module.exports = webpackConfig => {
 
 	}
 
+	log.debug(imagesLoaders);
+
 	webpackConfig.module.rules.push({
 		test: /\.(jpe?g|png|gif|svg)$/i,
 		use: imagesLoaders
 	});
 
-	log.debug('added', imagesLoaders);
+	log.info('added');
+
+	log.profile('start');
 
 };

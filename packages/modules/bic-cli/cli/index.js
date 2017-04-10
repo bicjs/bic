@@ -9,7 +9,7 @@ const cli = yargs
 	.command('bic', 'Run Bic 🔥')
 	.example(
 		`
-		  $ bic -p -c -d -o -f bic.config.file.js
+		  $ bic -p -c -d -o -e .bic -f config.production.js
 
 		`,
 		`
@@ -17,20 +17,13 @@ const cli = yargs
 			2) Clean build directory
 			3) Run debug mode
 		 	4) Open in browser
-		 	5) Specify config file
+		 	5) Specify extensions directory
+		 	6) Specify config file
 		`
 	);
 
 // Add commands
-
-config.cli.COMMAND_LIST.forEach(command => {
-
-	cli
-		.alias(command.alias, command.name)
-		.default(command.alias, command.default)
-		.describe(command.alias, command.description);
-
-});
+cli.options(config.cli.COMMAND);
 
 /**
  * `--help` or `-h`

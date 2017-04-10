@@ -9,6 +9,8 @@ module.exports = webpackConfig => {
 
 	if (cfg.production === true) {
 
+		log.profile('start');
+
 		const paths = Object.keys(webpackConfig.entry)
 			.reduce((output, path) => {
 
@@ -37,7 +39,11 @@ module.exports = webpackConfig => {
 			changeFeq: 'monthly'
 		}));
 
-		log.debug('added', cfg.url, paths);
+		log.debug(cfg.url, paths);
+
+		log.info('added');
+
+		log.profile('start');
 
 	}
 

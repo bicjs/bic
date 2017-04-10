@@ -9,12 +9,15 @@ module.exports = webpackConfig => {
 
 	if (cfg.open === true) {
 
+		log.profile('start');
+
 		webpackConfig.plugins.push(new OpenBrowserPlugin({
 			url: cfg.server.url
-			// , browser: 'Google Chrome Canary'
 		}));
 
-		log.debug('added');
+		log.info('added');
+
+		log.profile('start');
 
 	}
 

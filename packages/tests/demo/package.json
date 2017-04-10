@@ -30,10 +30,11 @@
   ],
   "main": ".",
   "scripts": {
-    "build": "bic --clean --production --extensions .bic --rc config.production.js",
-    "build:preview": "npm run build -- --open --debug",
-    "debug": "npm run dev -- --debug",
-    "dev": "bic --extensions .bic ",
+    "build": "bic --clean --production --extensions .bic --rc config.production.js --log info",
+    "build:preview": "npm run build -- --open",
+    "debug": "npm run dev -- --debug --log debug",
+    "dev": "bic --extensions .bic",
+    "help": "bic --help",
     "test": "npm run test:pass",
     "test:fail": "exit 1",
     "test:pass": "exit 0"

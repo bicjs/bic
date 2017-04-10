@@ -8,6 +8,8 @@ const cfg = require('@bicjs/bic-config').get();
 
 module.exports = webpackConfig => {
 
+	log.profile('start');
+
 	const config = {
 		sitemap: urljoin(cfg.url, cfg.file.name.sitemap),
 		userAgents: [{
@@ -16,8 +18,12 @@ module.exports = webpackConfig => {
 		}]
 	};
 
+	log.debug(config);
+
 	webpackConfig.plugins.push(new RobotsPlugin(config));
 
-	log.debug('added', config);
+	log.info('added');
+
+	log.profile('start');
 
 };
