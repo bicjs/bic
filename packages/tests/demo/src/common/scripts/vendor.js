@@ -6,10 +6,10 @@ import {
 
 attach(document.body);
 
-import Modernizr from 'modernizr';
-
-if (Modernizr.promises) {
-
-	console.log('Promises can be made.');
-
-}
+// import Modernizr from 'modernizr';
+//
+// if (Modernizr.promises) {
+//
+// 	console.log('Promises can be made.');
+//
+// }

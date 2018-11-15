@@ -8,10 +8,10 @@
   },
   "dependencies": {
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "dotenv": "4.0.0",
-    "fs-jetpack": "0.13.3",
-    "req-all": "1.0.0",
-    "seamless-immutable": "7.1.2"
+    "dotenv": "^6.1.0",
+    "fs-jetpack": "^2.2.0",
+    "req-all": "2.0.0",
+    "seamless-immutable": "^7.1.4"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/modules/bic-config/README.md",

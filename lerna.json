@@ -1,11 +1,21 @@
 {
-  "lerna": "2.0.0-beta.38",
   "packages": [
     "packages/configs/*",
-		"packages/tests/*",
-		"packages/plugins/*",
-		"packages/modules/*",
+    "packages/tests/*",
+    "packages/plugins/*",
+    "packages/modules/*",
     "packages/utils/*"
   ],
-  "version": "independent"
+  "command": {
+    "publish": {
+      "skipNpm": true,
+      "message": "chore(release): publish %s"
+    }
+  },
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "exact:": true,
+  "useGitVersion": true,
+  "gitVersionPrefix": "v",
+	"version": "independent"
 }

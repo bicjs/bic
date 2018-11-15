@@ -7,8 +7,8 @@
     "email": "github.raypatterson@gmail.com"
   },
   "dependencies": {
-    "stylelint": "7.10.1",
-    "stylelint-config-standard": "16.0.0"
+    "stylelint": "^9.7.1",
+    "stylelint-config-standard": "^18.2.0"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/configs/stylelint-config-bic/README.md",

@@ -8,14 +8,21 @@
   },
   "dependencies": {
     "bootstrap-sass": "3.3.7",
-    "eslint": "3.19.0",
+    "eslint": "5.9.0",
     "fastclick": "1.0.6",
     "font-awesome": "4.7.0",
-    "hack-font": "2.0.19"
+    "hack-font": "3.3.0"
   },
   "devDependencies": {
+    "@bicjs/bic-logger": "file:../../modules/bic-logger",
+    "@bicjs/bic": "file:../../modules/bic",
     "@bicjs/bic-cli": "file:../../modules/bic-cli",
-    "lodash": "4.17.4"
+    "@bicjs/bic-plugin-load-fonts": "file:../../plugins/bic-plugin-load-fonts",
+    "@bicjs/bic-plugin-load-images": "file:../../plugins/bic-plugin-load-images",
+    "@bicjs/bic-plugin-load-styles": "file:../../plugins/bic-plugin-load-styles",
+    "eslint-config-bic": "file:../../configs/eslint-config-bic",
+    "lodash": "4.17.11",
+    "stylelint-config-bic": "file:../../configs/stylelint-config-bic"
   },
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/test/demo/README.md",
   "keywords": [
@@ -30,7 +37,8 @@
   ],
   "main": ".",
   "scripts": {
-    "build": "bic --clean --production --extensions .bic --rc config.production.js",
+    "build": "bic --clean --production --extensions .bic  --debug",
+    "build:dist": "bic --clean --production --extensions .bic --rc config.production.js",
     "build:preview": "npm run build -- --open --debug",
     "debug": "npm run dev -- --debug",
     "dev": "bic --extensions .bic ",

@@ -14,7 +14,12 @@ const filename = cfg.production ? `${cfg.wp.outputChunkHash}.${cfg.file.name.js}
 const outputFilename = path.join(cfg.wp.outputName, filename);
 
 const webpackConfig = {
+	mode: cfg.production ? 'production' : 'development',
+	target: 'node',
 	entry: {},
+	optimization: {
+		minimizer: []
+	},
 	context: cfg.file.absolute.source,
 	output: {
 		path: dir.absolute.dest,

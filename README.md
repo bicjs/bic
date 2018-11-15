@@ -5,7 +5,7 @@
 ## Usage
 
 ```shell
-npm install -D bic-cli
+yarn add -D bic-cli
 ```
 
 In your `package.json` add:
@@ -27,14 +27,11 @@ To see debug level logs, use the `--debug` flag.
 ## Development
 
 ```shell
-npm install
+yarn setup
 
-# Will be done by the time you get back from a ☕ break.
-npm run bootstrap
+# open demo site.
+yarn demo
 
-# Will open the hideous demo site.
-npm run demo
-
-# Will open an interactive list of all NPM scripts.
-npm run ls
+# list of all scripts.
+yarn ls
 ```

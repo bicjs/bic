@@ -1,38 +1,42 @@
 'use strict';
 
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const autoprefixer = require('autoprefixer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const cfg = require('@bicjs/bic-config').get();
 const log = require('@bicjs/bic-logger').get('load styles');
 
 module.exports = webpackConfig => {
 
-	// PostCSS
-
-	const postcssLoader = {
+	const cssLoaders = [{
+		loader: cfg.production ? MiniCssExtractPlugin.loader : 'style-loader'
+	},
+	{
+		loader: 'css-loader',
+		options: {
+			sourceMap: true
+		}
+	},
+	{
 		loader: 'postcss-loader',
 		options: {
-			plugins: () => {
-
-				return [
-					autoprefixer
-				];
-
-			}
+			sourceMap: true,
+			ident: 'postcss',
+			plugins: [
+				require('postcss-preset-env')()
+			]
 		}
-	};
+	}];
 
-	// CSS
+	webpackConfig.module.rules.push({
+		test: /\.css$/,
+		use: cssLoaders
+	});
 
-	const cssLoader = {
-		loader: 'css-loader'
-	};
+	log.debug('added', cssLoaders);
 
-	// SASS
-
-	let sassLoaders = [{
+	const sassLoaders = cssLoaders.concat([{
 		loader: 'sass-loader',
 		options: {
 			includePaths: [
@@ -41,55 +45,33 @@ module.exports = webpackConfig => {
 				cfg.file.source
 			],
 			root: cfg.file.source,
-			outputStyle: 'expanded'
+			outputStyle: 'expanded',
+			sourceMap: true
 		}
-	}];
+	}]);
 
-	sassLoaders = [
-		cssLoader,
-		postcssLoader
-	].concat(sassLoaders);
-
-	// Add SASS Loader
 	webpackConfig.module.rules.push({
-		test: /\.scss$/i,
-		loader: ExtractTextPlugin.extract({
-			fallback: 'style-loader',
-			use: sassLoaders
-		})
+		test: /\.(sa|sc|c)ss$/,
+		use: sassLoaders
 	});
 
 	log.debug('added', sassLoaders);
 
-	// Add CSS Loader
-
-	let cssLoaders = [
-		cssLoader,
-		postcssLoader
-	];
-
-	webpackConfig.module.rules.push({
-		test: /\.css$/i,
-		loader: ExtractTextPlugin.extract({
-			fallback: 'style-loader',
-			use: cssLoaders
-		})
-	});
-
-	log.debug('added', cssLoaders);
-
-	// Configure ExtractTextPlugin
-
 	const filename = cfg.production ? `${cfg.wp.outputContentHash}.${cfg.file.name.css}` : cfg.file.name.css;
 
 	webpackConfig.plugins.push(
-		new ExtractTextPlugin({
+		new MiniCssExtractPlugin({
 			filename: path.join(cfg.wp.outputName, filename),
-			allChunks: true,
-			disable: !cfg.production
+			chunkFilename: path.join(cfg.wp.outputName, filename)
 		})
 	);
 
 	log.debug(`CSS extract is ${cfg.production ? 'enabled' : 'disabled'}`);
+
+	if (cfg.production) {
+
+		webpackConfig.optimization.minimizer.push(new OptimizeCSSAssetsPlugin({}));
+
+	}
 
 };

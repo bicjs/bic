@@ -1,12 +1,27 @@
 'use strict';
 
-const winston = require('winston');
+/**
+ * TODO: Consider https://github.com/pinojs/pino
+ */
+const {
+	config,
+	createLogger,
+	format,
+	transports
+} = require('winston');
+const {
+	combine,
+	colorize,
+	timestamp,
+	label,
+	printf
+} = format;
 
 /**
  * Winston.config.npm.levels = { error: 0, warn: 1, info: 2, verbose: 3, debug: 4, silly: 5 }
  */
 
-const LEVEL = Object.keys(winston.config.npm.levels).reduce((output, key) => {
+const LEVEL = Object.keys(config.npm.levels).reduce((output, key) => {
 
 	output[key] = key;
 	return output;
@@ -25,21 +40,21 @@ module.exports = {
 
 	},
 
-	get: function get() {
+	get: function get(...labels) {
 
-		const labels = Array.prototype.slice.call(arguments);
-		labels.unshift('🔥  bic');
-
-		return new (winston.Logger)({
-			transports: [
-				new (winston.transports.Console)({
-					label: labels.join(' ⟶ '),
-					level: level,
-					colorize: true,
-					timestamp: true,
-					prettyPrint: true
-				})
-			]
+		return createLogger({
+			level,
+			format: combine(
+				label({
+					label: labels.join(' • ')
+				}),
+				colorize({
+					all: true
+				}),
+				timestamp(),
+				printf(info => `🔥 ${info.level} [${info.label}] ⟶ ${info.message}`)
+			),
+			transports: [new transports.Console()]
 		});
 
 	}

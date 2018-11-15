@@ -1,6 +1,8 @@
 'use strict';
 
-const getOptions = require('loader-utils').getOptions;
+const {
+	getOptions
+} = require('loader-utils');
 
 module.exports = function passthroughLoader(content) {
 

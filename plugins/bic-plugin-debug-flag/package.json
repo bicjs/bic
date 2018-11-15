@@ -1,6 +1,6 @@
 {
-  "name": "@bicjs/bic-plugin-common-chunks",
-  "description": "Bic website packaging framework common chunks plugin.",
+  "name": "@bicjs/bic-plugin-debug-flag",
+  "description": "Bic website packaging framework debug flag plugin.",
   "version": "0.0.0-1",
   "author": {
     "name": "Ray Patterson",
@@ -9,15 +9,10 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "chunk-manifest-webpack-plugin": "1.0.0",
-    "html-webpack-plugin": "2.28.0",
-    "inline-chunk-manifest-html-webpack-plugin": "0.2.0",
-    "script-ext-html-webpack-plugin": "1.7.1",
-    "webpack": "2.3.3",
-    "webpack-chunk-hash": "0.4.0"
+    "webpack": "^4.25.1"
   },
   "devDependencies": {},
-  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-common-chunks/README.md",
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-debug-flag/README.md",
   "keywords": [
     "bic",
     "bicjs",

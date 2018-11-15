@@ -13,7 +13,7 @@
     "@bicjs/bic": "file:../../modules/bic",
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "yargs": "7.0.2"
+    "yargs": "~12.0.2"
   },
   "devDependencies": {},
   "homepage": "https://github.com/bicjs/bic/blob/master/packages/modules/bic-cli/README.md",

@@ -1,17 +1,19 @@
 {
-  "name": "@bicjs/bic-plugin-lint-styles",
-  "description": "Bic website packaging framework lint styles plugin.",
+  "name": "@bicjs/bic-plugin-browser-sync",
+  "description": "Bic website packaging framework browser sync plugin.",
   "version": "0.0.0-1",
   "author": {
     "name": "Ray Patterson",
     "email": "github.raypatterson@gmail.com"
   },
   "dependencies": {
+    "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "stylelint-webpack-plugin": "0.7.0"
+    "browser-sync": "^2.26.3",
+    "browser-sync-webpack-plugin": "^2.2.2"
   },
   "devDependencies": {},
-  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-lint-styles/README.md",
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-browser-sync/README.md",
   "keywords": [
     "bic",
     "bicjs",

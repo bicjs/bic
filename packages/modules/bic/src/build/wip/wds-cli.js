@@ -7,7 +7,7 @@ const packageRoot = require('./webpack/utils/get-package-root');
 
 const webpackConfigPath = path.join(packageRoot, 'webpack.config.js');
 
-var webpackDevServerProcess = execa('webpack-dev-server', [
+const webpackDevServerProcess = execa('webpack-dev-server', [
 	'--hot',
 	'--debug',
 	`--config=${webpackConfigPath}`

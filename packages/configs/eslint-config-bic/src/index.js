@@ -13,7 +13,7 @@ module.exports = {
 		commonjs: true
 	},
 	extends: [
-		'eslint-config-xo'
+		'xo/esnext'
 	],
 	rules: {
 		'padded-blocks': [

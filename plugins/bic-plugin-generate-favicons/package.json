@@ -1,6 +1,6 @@
 {
-  "name": "@bicjs/bic-plugin-load-fonts",
-  "description": "Bic website packaging framework images loader.",
+  "name": "@bicjs/bic-plugin-generate-favicons",
+  "description": "Bic website packaging framework generate favicons plugin.",
   "version": "0.0.0-1",
   "author": {
     "name": "Ray Patterson",
@@ -9,18 +9,16 @@
   "dependencies": {
     "@bicjs/bic-config": "file:../../modules/bic-config",
     "@bicjs/bic-logger": "file:../../modules/bic-logger",
-    "file-loader": "^2.0.0",
-    "url-loader": "^1.1.2"
+    "favicons-webpack-plugin": "0.0.9"
   },
   "devDependencies": {},
-  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-load-fonts/README.md",
+  "homepage": "https://github.com/bicjs/bic/blob/master/packages/plugins/bic-plugin-generate-favicons/README.md",
   "keywords": [
     "bic",
     "bicjs",
     "build",
     "framework",
-    "images",
-    "loader",
+    "plugin",
     "webpack",
     "website"
   ],
